@@ -228,3 +228,9 @@ cp -r node_modules/@fortawesome/fontawesome-free/webfonts application/public
     - selection：取出当前值，遍历取出后面中的最小值，放在当前位置
     - insertion:取出当前值，逆序遍历前面，有大的移到到当前位置
 * `pecl install ds`
+
+## thrift
+
+```
+thrift -r --gen php:server hello.thrift
+```

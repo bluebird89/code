@@ -10,7 +10,7 @@
   "require": {
 	"twig/twig": "~2.0",
 	"php-amqplib/php-amqplib": "^2.7",
-	"webonyx/graphql-php": "^0.12.4",
+	"webonyx/graphql-php": "^14.3",
 	"workerman/phpsocket.io": "^1.1",
 	"guzzlehttp/guzzle": "^7.1",
 	"phpmailer/phpmailer": "^6.0",
