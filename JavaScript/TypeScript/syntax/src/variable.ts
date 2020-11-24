@@ -7,33 +7,33 @@ const tree_of_knowledge: string = "Yggdrasil";
 const divine_lovers: string[] = ["Zeus", "Aphrodite"];
 const digits: Array<number> = [143219876, 112347890];
 
-let date_triplet : [number, number, number];
+let date_triplet: [number, number, number];
 date_triplet = [31, 6, 2016];
 
-let athena : [string, number];
+let athena: [string, number];
 athena = ['Athena', 9386];
 
-var name : string = athena[0];
-const age : number = athena[1];
+var name1: string = athena[0];
+const age1: number = athena[1];
 
-enum Color { Red, Green, Blue };
-const red : Color = Color.Red;
-console.log(Color[0]); // 'Red'
+enum Color1 { Red, Green, Blue };
+// const red : Color = Color1.Red;
+console.log(Color1[0]); // 'Red'
 
 // 允许指定起始序号
 enum RomanceLanguages { Spanish = 1, French, Italian, Romanian, Portuguese };
 console.log(RomanceLanguages[4]); // 'Romanian'
 console.log(RomanceLanguages[0]); // undefined
 
-let mystery : any = 4; // number
+let mystery: any = 4; // number
 mystery = "four"; // string -- no error
 
-const not_only_strings : any[] = [];
+const not_only_strings: any[] = [];
 not_only_strings.push("This Works!")
 not_only_strings.push(42); // This does too.
 
 
-let the_void : void = undefined;
+let the_void: void = undefined;
 the_void = null;
 
-the_void = "nothing"; // Error
+// the_void = "nothing"; // Error

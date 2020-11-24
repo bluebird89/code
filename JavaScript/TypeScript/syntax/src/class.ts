@@ -23,13 +23,13 @@ class CompletedListItem extends ListItem {
 }
 
 interface User {
-    name : string;
-    email : string;
+	name: string;
+	email: string;
 }
 
 class RegisteredUser implements User {
-  constructor (
-    public name : string,
-    public email : string
-  ) { }
+	constructor(
+		public name: string,
+		public email: string
+	) { }
 }
