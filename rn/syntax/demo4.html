@@ -2,38 +2,38 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />
-	<title>Hello World</title>
-	<script src="./src/react.development.js"></script>
-	<script src="./src/react-dom.development.js"></script>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="./src/react.development.js"></script>
+    <script src="./src/react-dom.development.js"></script>
 
-	<!-- Don't use this in production: -->
-	<script src="./src/babel.min.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="./src/babel.min.js"></script>
 </head>
 
 <body>
-	<div id="example"></div>
+    <div id="example"></div>
 
-	<script type="text/babel">
-		// 封装成组件 component
-		// 必须实现 render 方法，用于输出组件
-		// 组件类的第一个字母必须大写
-		// 只能包含一个顶层标签,可以嵌套
-		// 使用时声明属性:class 属性需要写成 className ，for 属性需要写成 htmlFor
-		// 属性在组件类的 this.props 对象上获取
-		class HelloMessage extends React.Component {
-			render() {
-				return <h1>Hello {this.props.name} <p>I am from {this.props.home} </p></h1>;
-			}
-		}
+    <script type="text/babel">
+        // 封装成组件 component
+        // 必须实现 render 方法，用于输出组件
+        // 组件类的第一个字母必须大写
+        // 只能包含一个顶层标签,可以嵌套
+        // 使用时声明属性:class 属性需要写成 className ，for 属性需要写成 htmlFor
+        // 属性在组件类的 this.props 对象上获取
+        class HelloMessage extends React.Component {
+            render() {
+                return <h1>Hello {this.props.name} <p>I am from {this.props.home} </p></h1>;
+            }
+        }
 
-		ReactDOM.render(
-			<HelloMessage name="henry" home='XinXiang' />,
-			document.getElementById('example')
-		);
+        ReactDOM.render(
+            <HelloMessage name="henry" home='XinXiang' />,
+            document.getElementById('example')
+        );
 
-	</script>
-	<!--
+    </script>
+    <!--
       Note: this page is a great way to try React but it's not suitable for production.
       It slowly compiles JSX with Babel in the browser and uses a large development build of React.
 

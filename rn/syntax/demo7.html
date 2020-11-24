@@ -2,49 +2,49 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />
-	<title>Hello World</title>
-	<script src="./src/react.development.js"></script>
-	<script src="./src/react-dom.development.js"></script>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="./src/react.development.js"></script>
+    <script src="./src/react-dom.development.js"></script>
 
-	<!-- Don't use this in production: -->
-	<script src="./src/babel.min.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="./src/babel.min.js"></script>
 </head>
 
 <body>
-	<div id="example"></div>
+    <div id="example"></div>
 
-	<script type="text/babel">
-		class MyComponent extends React.Component {
-			constructor(props) {
-				super(props);
-				this.myTextInput = React.createRef();
-				this.handleClick = this.handleClick.bind(this)
-			}
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            constructor(props) {
+                super(props);
+                this.myTextInput = React.createRef();
+                this.handleClick = this.handleClick.bind(this)
+            }
 
-			handleClick() {
-				// 使用
-				this.myTextInput.current.focus();
-				this.myTextInput.current.value += '_hello';
-			}
+            handleClick() {
+                // 使用
+                this.myTextInput.current.focus();
+                this.myTextInput.current.value += '_hello';
+            }
 
-			render() {
-				// 从组件获取真实 DOM 的节点信息，声明 ref 属性 this.myTextInput
-				// 等到虚拟 DOM 插入文档以后，才能使用这个属性  this.myTextInput.current
-				return (
-					<div>
-						<input type="text" ref={this.myTextInput} />
-						<input type="button" value="Focus the text input" onClick={this.handleClick} />
-					</div>
-				);
-			}
-		}
+            render() {
+                // 从组件获取真实 DOM 的节点信息，声明 ref 属性 this.myTextInput
+                // 等到虚拟 DOM 插入文档以后，才能使用这个属性  this.myTextInput.current
+                return (
+                    <div>
+                        <input type="text" ref={this.myTextInput} />
+                        <input type="button" value="Focus the text input" onClick={this.handleClick} />
+                    </div>
+                );
+            }
+        }
 
-		ReactDOM.render(
-			<MyComponent />,
-			document.getElementById('example')
-		);
-	</script>
+        ReactDOM.render(
+            <MyComponent />,
+            document.getElementById('example')
+        );
+    </script>
 
 </body>
 

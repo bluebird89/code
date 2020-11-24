@@ -2,34 +2,34 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />
-	<title>Hello World</title>
-	<script src="./src/react.development.js"></script>
-	<script src="./src/react-dom.development.js"></script>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="./src/react.development.js"></script>
+    <script src="./src/react-dom.development.js"></script>
 
-	<!-- Don't use this in production: -->
-	<script src="./src/babel.min.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="./src/babel.min.js"></script>
 </head>
 
 <body>
-	<div id="example"></div>
+    <div id="example"></div>
 
-	<script type="text/babel">
-		var names = ['Alice', 'Emily', 'Kate'];
-		// JSX 的基本语法规则：遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析
-		ReactDOM.render(
-			<div>
-				{
-					names.map(function (name) {
-						return <div>Hello, {name}!</div>
-					})
-				}
-			</div>,
-			document.getElementById('example')
-		);
+    <script type="text/babel">
+        var names = ['Alice', 'Emily', 'Kate'];
+        // JSX 的基本语法规则：遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析
+        ReactDOM.render(
+            <div>
+                {
+                    names.map(function (name) {
+                        return <div>Hello, {name}!</div>
+                    })
+                }
+            </div>,
+            document.getElementById('example')
+        );
 
-	</script>
-	<!--
+    </script>
+    <!--
       Note: this page is a great way to try React but it's not suitable for production.
       It slowly compiles JSX with Babel in the browser and uses a large development build of React.
 

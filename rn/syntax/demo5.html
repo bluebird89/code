@@ -2,45 +2,45 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />
-	<title>Hello World</title>
-	<script src="./src/react.development.js"></script>
-	<script src="./src/react-dom.development.js"></script>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="./src/react.development.js"></script>
+    <script src="./src/react-dom.development.js"></script>
 
-	<!-- Don't use this in production: -->
-	<script src="./src/babel.min.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="./src/babel.min.js"></script>
 </head>
 
 <body>
-	<div id="example"></div>
+    <div id="example"></div>
 
-	<script type="text/babel">
-		// this.props.children 属性:表示组件的所有子节点
-		// 如果当前组件没有子节点，就是 undefined
-		// 如果有一个子节点，数据类型是 object
-		// 如果有多个子节点，数据类型就是 array
-		class NotesList extends React.Component {
-			render() {
-				return (
-					<ol>
-						{
-							React.Children.map(this.props.children, function (child) {
-								return <li>{child}</li>;
-							})
-						}
-					</ol>
-				);
-			}
-		}
+    <script type="text/babel">
+        // this.props.children 属性:表示组件的所有子节点
+        // 如果当前组件没有子节点，就是 undefined
+        // 如果有一个子节点，数据类型是 object
+        // 如果有多个子节点，数据类型就是 array
+        class NotesList extends React.Component {
+            render() {
+                return (
+                    <ol>
+                        {
+                            React.Children.map(this.props.children, function (child) {
+                                return <li>{child}</li>;
+                            })
+                        }
+                    </ol>
+                );
+            }
+        }
 
-		ReactDOM.render(
-			<NotesList>
-				<span>hello</span>
-				<span>world</span>
-			</NotesList>,
-			document.getElementById('example')
-		);
-	</script>
+        ReactDOM.render(
+            <NotesList>
+                <span>hello</span>
+                <span>world</span>
+            </NotesList>,
+            document.getElementById('example')
+        );
+    </script>
 
 </body>
 

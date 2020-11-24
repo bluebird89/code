@@ -2,48 +2,48 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />
-	<title>Hello World</title>
-	<script src="./src/react.development.js"></script>
-	<script src="./src/react-dom.development.js"></script>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="./src/react.development.js"></script>
+    <script src="./src/react-dom.development.js"></script>
 
-	<!-- Don't use this in production: -->
-	<script src="./src/babel.min.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="./src/babel.min.js"></script>
 </head>
 
 <body>
-	<div id="example"></div>
+    <div id="example"></div>
 
-	<script type="text/babel">
-		// 组件看成是一个状态机，一开始有一个初始状态，然后用户互动，导致状态变化，从而触发重新渲染 UI
-		class LikeButton extends React.Component {
-			constructor(props) {
-				super(props)
-				this.state = {
-					liked: false
-				}
-				this.handleClick = this.handleClick.bind(this)
-			}
-			// this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件
-			handleClick(event) {
-				this.setState({ liked: !this.state.liked });
-			}
+    <script type="text/babel">
+        // 组件看成是一个状态机，一开始有一个初始状态，然后用户互动，导致状态变化，从而触发重新渲染 UI
+        class LikeButton extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    liked: false
+                }
+                this.handleClick = this.handleClick.bind(this)
+            }
+            // this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件
+            handleClick(event) {
+                this.setState({ liked: !this.state.liked });
+            }
 
-			render() {
-				var text = this.state.liked ? 'like' : 'haven\'t liked';
-				return (
-					<p onClick={this.handleClick}>
-						You {text} this. Click to toggle.
-					</p>
-				);
-			}
-		}
+            render() {
+                var text = this.state.liked ? 'like' : 'haven\'t liked';
+                return (
+                    <p onClick={this.handleClick}>
+                        You {text} this. Click to toggle.
+                    </p>
+                );
+            }
+        }
 
-		ReactDOM.render(
-			<LikeButton />,
-			document.getElementById('example')
-		);
-	</script>
+        ReactDOM.render(
+            <LikeButton />,
+            document.getElementById('example')
+        );
+    </script>
 
 </body>
 

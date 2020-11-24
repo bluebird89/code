@@ -2,46 +2,46 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />
-	<title>Hello World</title>
-	<script src="./src/react.development.js"></script>
-	<script src="./src/react-dom.development.js"></script>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="./src/react.development.js"></script>
+    <script src="./src/react-dom.development.js"></script>
 
-	<!-- Don't use this in production: -->
-	<script src="./src/babel.min.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="./src/babel.min.js"></script>
 </head>
 
 <body>
-	<div id="example"></div>
+    <div id="example"></div>
 
-	<script type="text/babel">
+    <script type="text/babel">
 
-		class Input extends React.Component {
-			constructor(props) {
-				super(props)
-				this.state = {
-					value: 'Hello!'
-				}
-				this.handleChange = this.handleChange.bind(this)
-			}
+        class Input extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    value: 'Hello!'
+                }
+                this.handleChange = this.handleChange.bind(this)
+            }
 
-			handleChange(event) {
-				this.setState({ value: event.target.value });
-			}
+            handleChange(event) {
+                this.setState({ value: event.target.value });
+            }
 
-			render() {
-				var value = this.state.value;
-				return (
-					<div>
-						<input type="text" value={value} onChange={this.handleChange} />
-						<p>{value}</p>
-					</div>
-				);
-			}
-		}
+            render() {
+                var value = this.state.value;
+                return (
+                    <div>
+                        <input type="text" value={value} onChange={this.handleChange} />
+                        <p>{value}</p>
+                    </div>
+                );
+            }
+        }
 
-		ReactDOM.render(<Input />, document.getElementById('example'));
-	</script>
+        ReactDOM.render(<Input />, document.getElementById('example'));
+    </script>
 
 </body>
 
