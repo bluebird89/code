@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, Route, Router } from 'react-router';
 // the histories are imported separately for smaller builds
 import { history } from 'react-router/lib/HashHistory';

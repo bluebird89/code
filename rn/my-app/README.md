@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## [Todo List App](link)
+
+- 展示 Todo List
+  - import css and use class directly
+  - use className attr for assign class to html tag
+- 添加 Todo Item - 重构组件内的数据是无副作用的，每次改变都是一个副本
+- 勾选 Item 完成
+- Filter Todo List - 重构 filter 样式，利用 classname,动态定义样式，减少 js 界面逻辑操作
+- 编辑修改 Todo Item
+- 实时显示为完成 Todo Item 数量
+- 完成所有 Todo Items
+- 清除已经完成 Todo Items
