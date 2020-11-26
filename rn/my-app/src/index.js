@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
 import App from './App.js';
-import CounterFunHook from './Component/counter-fun-hook.js';
-import CounterFun from './Component/counter-func.js';
-import Counter from './Component/Counter.js';
-import LikeButton from './Component/LikeButton.js';
-import List from "./Component/List.js";
-import MyComponent from './Component/MyComponent.js';
-import WebSite from './Component/WebSite.js';
+import Car4 from './components/Car4.js';
+import CounterFunHook from './components/counter-fun-hook.js';
+import CounterFun from './components/counter-func.js';
+import Counter from './components/Counter.js';
+import CounterRedux from './components/CounterRedux';
+import LikeButton from './components/LikeButton.js';
+import List from "./components/List.js";
+import MyComponent from './components/MyComponent.js';
+import WebSite from './components/WebSite.js';
 import './index.css';
+import counter from './reducers';
 import reportWebVitals from './reportWebVitals';
 
 const myHeader = <h1>I Love JSX!</h1>;
@@ -99,17 +103,14 @@ class HelloMessage extends React.Component {
     }
 }
 
-// ReactDOM.render(
-//     <HelloMessage name="John" />,
-//     document.getElementById('example')
-// );
-
-// ReactDOM.render(<Car4 />, document.getElementById('root'));
-
-// ReactDOM.render(<Car color="Green" />, document.getElementById('root'));
 ReactDOM.render(
     <React.StrictMode>
-        <App show='true' />
+        <App show='true' >
+            <Garage />
+            <Car4 />
+            <Car1 /><Car color="Green" />
+            <HelloMessage name="henry" />
+        </App>
     </React.StrictMode>,
     document.getElementById('root')
 );
@@ -152,3 +153,19 @@ ReactDOM.render(
     document.getElementById('reff')
 );
 reportWebVitals();
+
+
+const store = createStore(counter)
+const rootEl = document.getElementById('redux')
+
+const render = () => ReactDOM.render(
+    <CounterRedux
+        value={store.getState()}
+        onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+        onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+    />,
+    rootEl
+)
+
+render()
+store.subscribe(render)

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Route, Router } from 'react-router';
 // the histories are imported separately for smaller builds
 import { history } from 'react-router/lib/HashHistory';
+
 var App = React.createClass({
     render() {
         return (
@@ -30,10 +31,9 @@ React.render((
         <Route path="/" component={App}>
             <Route path="about" component={About} />
             <Route path="inbox" component={Inbox} />
-            <Route path="users" component={Users}>
-                <Route path="/user/:userId" component={User} />
-            </Route>
+            <Route path="users" component={Users} />
+            <Route path="/user/:userId" component={User} />
             <Route path="*" component={NoMatch} />
         </Route>
-    </Router>
-), document.body);
+    </Router >
+), document.getElementById('app'));
