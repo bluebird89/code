@@ -1,2 +1,2 @@
-const { cpus }   = require('os');
+const { cpus } = require('os');
 const numWorkers = cpus().length;

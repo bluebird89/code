@@ -1,0 +1,26 @@
+---
+- hosts: webservers # web服务器主机群组，由hosts文件提供定义
+remote_user: root
+
+tasks:
+- name: ensure apache is at the latest version
+  yum:
+    name: httpd
+    state: latest
+- name: write the apache config file
+  template:
+    src: /srv/httpd.j2
+    dest: /etc/httpd.conf
+
+- hosts: databases # 数据库服务器主机群组，由hosts文件提供定义
+remote_user: root
+
+tasks:
+- name: ensure postgresql is at the latest version
+  yum:
+    name: postgresql
+    state: latest
+- name: ensure that postgresql is started
+  service:
+    name: postgresql
+    state: started
