@@ -1,5 +1,17 @@
 import React from 'react';
 
+const Text = props => <input type="text" {...props} />
+
+const Select = ({ options, ...others }) => (
+    <select {...others}>
+        {Object.keys(options)
+            .map((optionKey, index) => (
+                <option value={optionKey} key={index}>{options[optionKey]}</option>
+            ))
+        }
+    </select>
+)
+
 class MyForm extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +23,6 @@ class MyForm extends React.Component {
             errormessage: ''
         };
     }
-
 
     myChangeHandler = (event) => {
         let nam = event.target.name;
@@ -37,7 +48,6 @@ class MyForm extends React.Component {
     }
 
     render() {
-
         const mystyle = {
             color: "white",
             backgroundColor: "DodgerBlue",
@@ -61,6 +71,7 @@ class MyForm extends React.Component {
                     name='username'
                     onChange={this.myChangeHandler}
                 />
+
                 <p>Enter your age:</p>
                 <input
                     type='text'

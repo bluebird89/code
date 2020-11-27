@@ -1,26 +1,30 @@
 {
-	"presets": ["es2015", "@babel/react", "@babel/env"],
-	"plugins": [
-		// 	"import", {
-		// 	"libraryName": "antd",
-		// 	"style": true
-		//   }
-		//   ],
-		//   "transform-runtime",
-		//   "transform-decorators-legacy"
-	],
-	"env": {
-		"production": {},
-		"development": {
-			// 	"plugins": [
-			// 	  [
-			// 		"dva-hmr", {
-			// 		"container": "#app",
-			// 		"quiet": false
-			// 	  }
-			// 	  ]
-			// 	]
-		}
-	},
-	"comments": false
+  "presets": [
+    "es2015",
+    "@babel/react",
+    "@babel/env"
+  ],
+  "plugins": [
+    // 	"import", {
+    // 	"libraryName": "antd",
+    // 	"style": true
+    //   }
+    //   ],
+    //   "transform-runtime",
+    //   "transform-decorators-legacy"
+  ],
+  "env": {
+    "production": {},
+    "development": {
+      // 	"plugins": [
+      // 	  [
+      // 		"dva-hmr", {
+      // 		"container": "#app",
+      // 		"quiet": false
+      // 	  }
+      // 	  ]
+      // 	]
+    }
+  },
+  "comments": false
 }

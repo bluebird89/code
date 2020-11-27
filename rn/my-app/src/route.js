@@ -37,3 +37,11 @@ React.render((
         </Route>
     </Router >
 ), document.getElementById('app'));
+
+// const Root = ({ store }) => (
+//     <Provider store={store}>
+//       <Router>
+//         <Route path="/" component={App} />
+//       </Router>
+//     </Provider>
+//   );

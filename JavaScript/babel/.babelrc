@@ -1,0 +1,18 @@
+{
+  "presets": [
+    "es2015",
+    "@babel/react"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "transform-es2015-classes"
+  ],
+  "env": {
+    "development": {
+      "plugins": []
+    },
+    "production": {
+      "plugins": []
+    }
+  }
+}
