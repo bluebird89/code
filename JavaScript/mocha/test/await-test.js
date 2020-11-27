@@ -1,12 +1,12 @@
 const assert = require('assert');
 
-const hello = require('../await-test');
+const hello = require('../src/await');
 
 describe('#async hello', () => {
     describe('#asyncCalculate()', () => {
         // function(done) {}
         it('#async with done', (done) => {
-            (async function() {
+            (async function () {
                 try {
                     let r = await hello();
                     assert.strictEqual(r, 15);
@@ -17,7 +17,7 @@ describe('#async hello', () => {
             })();
         });
 
-        it('#async function', async() => {
+        it('#async function', async () => {
             let r = await hello();
             assert.strictEqual(r, 15);
         });

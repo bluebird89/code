@@ -1,21 +1,21 @@
 const assert = require('assert');
-const sum = require('../hello');
+const sum = require('../src/hello');
 
 describe('#hello.js', () => {
     describe('#sum()', () => {
-        before(function() {
+        before(function () {
             console.log('before:');
         });
 
-        after(function() {
+        after(function () {
             console.log('after.');
         });
 
-        beforeEach(function() {
+        beforeEach(function () {
             console.log('  beforeEach:');
         });
 
-        afterEach(function() {
+        afterEach(function () {
             console.log('  afterEach.');
         });
 

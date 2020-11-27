@@ -1,6 +1,6 @@
 const
     request = require('supertest'),
-    app = require('../app');
+    app = require('../src/app');
 
 describe('#test koa app', () => {
 
@@ -8,14 +8,14 @@ describe('#test koa app', () => {
 
     describe('#test server', () => {
 
-        it('#test GET /', async() => {
+        it('#test GET /', async () => {
             let res = await request(server)
                 .get('/')
                 .expect('Content-Type', /text\/html/)
                 .expect(200, '<h1>Hello, world!</h1>');
         });
 
-        it('#test GET /path?name=Bob', async() => {
+        it('#test GET /path?name=Bob', async () => {
             let res = await request(server)
                 .get('/path?name=Bob')
                 .expect('Content-Type', /text\/html/)
