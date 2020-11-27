@@ -1,7 +1,7 @@
-import _ from 'lodash'
-import smallSizeImage from './assets/small-image.jpg';
-import normalSizeImage from './assets/normal-image.jpg';
+import _ from 'lodash';
 import bigSizeImage from './assets/big-image.jpg';
+import normalSizeImage from './assets/normal-image.jpg';
+import smallSizeImage from './assets/small-image.jpg';
 import './main.css';
 
 let result = [1, 2, 3].map((n) => n + 1);

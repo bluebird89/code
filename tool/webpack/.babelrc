@@ -1,6 +1,6 @@
 {
   "presets": [
-    "es2015",
+    // "es2015",
     "@babel/react",
     "@babel/env"
   ],
@@ -16,14 +16,7 @@
   "env": {
     "production": {},
     "development": {
-      // 	"plugins": [
-      // 	  [
-      // 		"dva-hmr", {
-      // 		"container": "#app",
-      // 		"quiet": false
-      // 	  }
-      // 	  ]
-      // 	]
+      "plugins": []
     }
   },
   "comments": false

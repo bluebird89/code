@@ -4,12 +4,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-// 配置常量
-// 源代码的根目录（本地物理文件路径）
-const SRC_PATH = path.resolve('./app');
-// 打包后的资源根目录（本地物理文件路径）
+const SRC_PATH = path.resolve('./src');
 const ASSETS_BUILD_PATH = path.resolve('./dist');
-// 资源根目录（可以是 CDN 上的绝对路径，或相对路径）
 const ASSETS_PUBLIC_PATH = '/assets/';
 
 function resolve(dir) {
@@ -23,13 +19,13 @@ module.exports = {
         extensions: ['.js', '.jsx'] // 同时支持 js 和 jsx
     },
     entry: {
-        'index': './src/index1.js',
+        'index': './index1.js',
         // 注意 entry 中的路径都是相对于 SRC_PATH 的路径
         // vendor: './vendor',
         // a: ['./entry-a'],
         // b: ['./entry-b'],
         // c: ['./entry-c']
-        bundle1: './main1.js',
+        bundle1: './main.js',
         bundle2: './main2.js',
     },
     output: {
@@ -53,31 +49,23 @@ module.exports = {
                 options: {
                     limit: 8 * 1024
                 }
-            }, {
-                loader: 'image-webpack-loader',
-                options: {
-                    mozjpeg: {
-                        progressive: true,
-                        quality: 65
-                    },
-                    optipng: {
-                        enabled: false,
-                    },
-                    pngquant: {
-                        quality: [0.65, 0.90],
-                        speed: 4
-                    },
-                    gifsicle: {
-                        interlaced: false,
-                    },
-                    webp: {
-                        quality: 75
-                    }
-                }
             }]
         },
         {
-            test: /\.(s*)css$/,
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+        }, {
+            test: /\.less$/,
+            use: [
+                'style-loader',
+                'css-loader',
+                // 将less文件编译成css文件
+                // 需要下载 less-loader和less
+                'less-loader'
+            ]
+        },
+        {
+            test: /\.(sass|scss)$/,
             use: [
                 'style-loader',
                 {
@@ -102,13 +90,13 @@ module.exports = {
                     options: {
                         sourceMap: true
                     }
-                }
+                },
+
             ]
         },
         {
             test: /\.jsx?$/,
             exclude: /node_modules/,
-            // 建议把 babel 的运行时配置放在 .babelrc 里，从而与 eslint-loader 等共享配置
             loader: 'babel-loader'
         },
 
@@ -156,7 +144,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './src/index1.html',
+            template: 'index1.html',
             filename: 'index1.html'
         }),
         new ESLintPlugin()

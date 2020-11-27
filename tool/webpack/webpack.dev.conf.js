@@ -2,7 +2,6 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const baseWebpackConfig = require('./webpack.base.conf');
 
-
 const webpackConfig = merge(baseWebpackConfig, {
     //environment specific config goes here
     mode: 'development',
@@ -45,10 +44,6 @@ const webpackConfig = merge(baseWebpackConfig, {
             ],
             exclude: /node_modules/
         }]
-    },
-    externals = {
-        react: 'React',
-        'react-dom': 'ReactDOM'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

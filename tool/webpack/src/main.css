@@ -1,5 +1,7 @@
 body {
     background-color: red;
+    margin: 10;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 div {
@@ -12,14 +14,38 @@ div {
 
 
 /* 脱离模块化约束而使用全局的声明（即效果跟普通css相同） */
-
 :global(.gold) {
     background-color: gold;
 }
 
 
 /* 使用模块化化处理 */
-
 :local(.aqua) {
     background-color: aqua;
+}
+
+/* main.css */
+html {
+    box-sizing: border-box;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+    margin: 0;
+    padding: 0;
 }
