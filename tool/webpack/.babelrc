@@ -5,13 +5,9 @@
     "@babel/env"
   ],
   "plugins": [
-    // 	"import", {
-    // 	"libraryName": "antd",
-    // 	"style": true
-    //   }
-    //   ],
-    //   "transform-runtime",
-    //   "transform-decorators-legacy"
+    "import",
+    "transform-runtime",
+    "transform-decorators-legacy"
   ],
   "env": {
     "production": {},
