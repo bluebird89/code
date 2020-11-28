@@ -3,7 +3,10 @@ import bigSizeImage from './assets/big-image.jpg';
 import normalSizeImage from './assets/normal-image.jpg';
 import smallSizeImage from './assets/small-image.jpg';
 import { createElement } from './createElement';
+import './css/base.scss';
 import './main.css';
+import './main.scss';
+import './main2.scss';
 
 createElement('yellow');
 createElement('blue');

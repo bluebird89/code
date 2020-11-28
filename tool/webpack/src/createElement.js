@@ -1,4 +1,5 @@
 import style from "./createElement.scss";
+
 export function createElement(className) {
     let element = document.createElement('div');
     element.style.height = "50px";
