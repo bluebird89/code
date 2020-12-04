@@ -12,6 +12,7 @@ class LikeButton extends React.Component {
     handleClick = () => {
         this.setState({ liked: !this.state.liked });
     }
+
     render() {
         var text = this.state.liked ? '喜欢' : '不喜欢';
         return (
@@ -23,3 +24,13 @@ class LikeButton extends React.Component {
 }
 
 export default LikeButton;
+
+// this.handleClick = this.handleClick.bind(this);
+
+// handleClick = () => {
+//     console.log('this is:', this);
+//   }
+
+{/* <button onClick={() => this.handleClick()}>
+    Click me
+</button> */}

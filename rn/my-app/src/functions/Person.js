@@ -24,3 +24,5 @@ const Person = ({ personId }) => {
         <p>Mass: {person.mass}</p>
     </div>
 }
+
+export default Person

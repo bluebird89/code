@@ -5,6 +5,7 @@ class MyCompontent extends React.Component {
         super(props);
         // 创建一个 ref 来存储 textInput 的 DOM 元素
         this.textInput = React.createRef();
+        // 为了在回调中使用 `this`，这个绑定是必不可少的
         this.focusTextInput = this.focusTextInput.bind(this);
     }
 

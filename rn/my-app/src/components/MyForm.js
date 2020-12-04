@@ -19,12 +19,14 @@ class MyForm extends React.Component {
             username: '',
             age: null,
             description: 'The content of a textarea goes in the value attribute',
-            mycar: 'Volvo',
-            errormessage: ''
+            carBrand: 'Volvo',
+            errormessage: '',
+            isGoing: true,
+            numberOfGuests: 2
         };
     }
 
-    myChangeHandler = (event) => {
+    handleChange = (event) => {
         let nam = event.target.name;
         let val = event.target.value;
         let err = '';
@@ -37,14 +39,24 @@ class MyForm extends React.Component {
         this.setState({ errormessage: err });
         this.setState({ [nam]: val });
     }
+    handleInputChange = (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
 
-    mySubmitHandler = (event) => {
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleSubmit = (event) => {
         event.preventDefault();
         let age = this.state.age;
         if (!Number(age)) {
             alert("Your age must be a number");
         }
-        alert("You are submitting " + this.state.username);
+
+        alert("You are submitting: " + this.state.username + " " + this.state.age + " " + this.state.carBrand);
     }
 
     render() {
@@ -62,33 +74,57 @@ class MyForm extends React.Component {
         } else {
             header = '';
         }
+
         return (
-            <form onSubmit={this.mySubmitHandler}>
+            <form onSubmit={this.handleSubmit}>
                 {header}
+                {Text}
+                {Select}
                 <p style={mystyle}>Enter your name:</p>
                 <input
                     type="text"
                     name='username'
-                    onChange={this.myChangeHandler}
+                    onChange={this.handleChange}
                 />
 
                 <p>Enter your age:</p>
                 <input
                     type='text'
                     name='age'
-                    onChange={this.myChangeHandler}
+                    onChange={this.handleChange}
                 />
-                <select value={this.state.mycar}>
+
+                <select value={this.state.carBrand} onChange={this.handleChange} >
                     <option value="Ford">Ford</option>
                     <option value="Volvo">Volvo</option>
                     <option value="Fiat">Fiat</option>
                 </select>
+
                 <textarea value={this.state.description} />
                 <input
                     type='submit'
                 />
                 {/* Inline Styling */}
                 <h6 style={{ color: "red" }}> {this.state.errormessage}</h6>
+                <input type="file" />
+
+                <label>
+                    参与:
+          <input
+                        name="isGoing"
+                        type="checkbox"
+                        checked={this.state.isGoing}
+                        onChange={this.handleInputChange} />
+                </label>
+                <br />
+                <label>
+                    来宾人数:
+          <input
+                        name="numberOfGuests"
+                        type="number"
+                        value={this.state.numberOfGuests}
+                        onChange={this.handleInputChange} />
+                </label>
             </form >
         );
     }

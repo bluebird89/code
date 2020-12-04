@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Button() {
+export default function Button(props) {
     const [buttonText, setButtonText] = useState("Click me,   please");
 
     function handleClick() {
