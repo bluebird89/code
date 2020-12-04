@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>sample</title>
-        <script src="./../static/js/vue.js"></script>
-    </head>
-    <body>
-        <div id="example">
-            <div
-                class="static"
-                v-bind:class="{ active: isActive, 'text-danger': hasError }"
-            >
-                <h3>Class 属性绑定</h3>
-            </div>
-            <div v-bind:class="[classObject,classObject1]">
-                <p>
-                    属性为对象体
-                </p>
-            </div>
+
+<head>
+    <title>sample</title>
+    <script src="./../static/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="example">
+        <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">
+            <h3>Class 属性绑定</h3>
         </div>
-    </body>
-    <script>
-        new Vue({
-            el: "#example",
+        <div v-bind:class="[classObject,classObject1]">
+            <p>
+                属性为对象体
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: "#example",
+        error: null,
+        data: {
+            isActive: true,
+            hasError: true,
             error: null,
-            data: {
-                isActive: true,
-                hasError: true,
-                error: null,
-                classObject: {
-                    active: true,
-                    "text-danger": false,
-                },
+            classObject: {
+                active: true,
+                "text-danger": false,
             },
-            computed: {
-                classObject1: function () {
-                    return {
-                        active: this.isActive && !this.error,
-                        "text-danger":
-                            this.error && this.error.type === "fatal",
-                    };
-                },
+        },
+        computed: {
+            classObject1: function () {
+                return {
+                    active: this.isActive && !this.error,
+                    "text-danger":
+                        this.error && this.error.type === "fatal",
+                };
             },
-        });
-    </script>
+        },
+    });
+</script>
+
 </html>

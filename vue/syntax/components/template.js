@@ -1,5 +1,5 @@
 Vue.component("process-view", {
-  data() {
-    return { processRate: 50 };
-  }
+    data() {
+        return { processRate: 50 };
+    }
 });

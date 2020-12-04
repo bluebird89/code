@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>sample</title>
-        <script src="./../static/js/vue.js"></script>
-    </head>
-    <body>
-        <div id="example">
-            <h3>文本</h3>
-            <span>Message: {{ msg }}</span>
-            <br />
-            <span v-once>v-once:不会改变: {{ msg }}</span>
-            <br />
 
-            <h3>Raw Html</h3>
-            <p>Using mustaches: {{ rawHtml }}</p>
-            <p>Using v-html directive: <span v-html="rawHtml"></span></p>
-            <br />
+<head>
+    <title>sample</title>
+    <script src="./../static/js/vue.js"></script>
+</head>
 
-            <h3>绑定属性</h3>
-            <div v-bind:id="dynamicId">绑定id</div>
-            <button :disabled="isButtonDisabled">Button</button>
-
-            <input type="text" v-model="name" placeholder="你的名字" />
-            <p>你好呀，{{ name }}</p>
-        </div>
+<body>
+    <div id="example">
+        <h3>文本</h3>
+        <span>Message: {{ msg }}</span>
         <br />
-    </body>
-    <script>
-        new Vue({
-            el: "#example",
-            data: {
-                msg: "hello",
-                name: "henry",
-                rawHtml: `Using mustaches: <span style="color: red">This should be red.</span>`,
-                dynamicId: 45,
-                isButtonDisabled: true,
-            },
-        });
-    </script>
+        <span v-once>v-once:不会改变: {{ msg }}</span>
+        <br />
+
+        <h3>Raw Html</h3>
+        <p>Using mustaches: {{ rawHtml }}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+        <br />
+
+        <h3>绑定属性</h3>
+        <div v-bind:id="dynamicId">绑定id</div>
+        <button :disabled="isButtonDisabled">Button</button>
+
+        <input type="text" v-model="name" placeholder="你的名字" />
+        <p>你好呀，{{ name }}</p>
+    </div>
+    <br />
+</body>
+<script>
+    new Vue({
+        el: "#example",
+        data: {
+            msg: "hello",
+            name: "henry",
+            rawHtml: `Using mustaches: <span style="color: red">This should be red.</span>`,
+            dynamicId: 45,
+            isButtonDisabled: true,
+        },
+    });
+</script>
+
 </html>

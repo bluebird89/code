@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8" />
 
-        <title>Button</title>
+<head>
+    <meta charset="utf-8" />
 
-        <style>
-            .one,
-            .two {
-                height: 100px;
-                width: 100px;
-                border: 1px solid #000;
-                position: absolute;
-                -webkit-user-select: none;
-                -ms-user-select: none;
-                -moz-user-select: -moz-none;
-                cursor: pointer;
-            }
+    <title>Button</title>
 
-            .two {
-                left: 200px;
-            }
-        </style>
-    </head>
+    <style>
+        .one,
+        .two {
+            height: 100px;
+            width: 100px;
+            border: 1px solid #000;
+            position: absolute;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: -moz-none;
+            cursor: pointer;
+        }
 
-    <body>
-        <div id="app">
-            <div class="one" v-drag>拖拽one</div>
-            <div class="two" v-drag>拖拽two</div>
-        </div>
+        .two {
+            left: 200px;
+        }
+    </style>
+</head>
 
-        <script src="../static/js/vue.js"></script>
+<body>
+    <div id="app">
+        <div class="one" v-drag>拖拽one</div>
+        <div class="two" v-drag>拖拽two</div>
+    </div>
 
-        <script type="text/javascript">
-            Vue.directive("drag", {
-                inserted: function (el) {
-                    el.onmousedown = function (e) {
-                        let l = e.clientX - el.offsetLeft;
-                        let t = e.clientY - el.offsetTop;
-                        document.onmousemove = function (e) {
-                            el.style.left = e.clientX - l + "px";
-                            el.style.top = e.clientY - t + "px";
-                        };
+    <script src="../static/js/vue.js"></script>
 
-                        el.onmouseup = function () {
-                            document.onmousemove = null;
-                            el.onmouseup = null;
-                        };
+    <script type="text/javascript">
+        Vue.directive("drag", {
+            inserted: function (el) {
+                el.onmousedown = function (e) {
+                    let l = e.clientX - el.offsetLeft;
+                    let t = e.clientY - el.offsetTop;
+                    document.onmousemove = function (e) {
+                        el.style.left = e.clientX - l + "px";
+                        el.style.top = e.clientY - t + "px";
                     };
-                },
-            });
 
-            new Vue({
-                el: "#app",
-            });
-        </script>
-    </body>
+                    el.onmouseup = function () {
+                        document.onmousemove = null;
+                        el.onmouseup = null;
+                    };
+                };
+            },
+        });
+
+        new Vue({
+            el: "#app",
+        });
+    </script>
+</body>
+
 </html>

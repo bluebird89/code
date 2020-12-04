@@ -1,5 +1,5 @@
 Vue.component("modal", {
-  template: `
+    template: `
     <div class="modal is-active">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -11,7 +11,7 @@ Vue.component("modal", {
                 </p>
                 <button class="delete" aria-label="close"></button>
             </header>
-            
+
             <section class="modal-card-body">
                 <slot>
                     Default Content.

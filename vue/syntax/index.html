@@ -1,159 +1,155 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>index</title>
     <link rel="stylesheet" href="./static/css/bulma.css" />
 
     <style>
-      .is-loading {
-        background: red;
-      }
-      body {
-        padding-top: 40px;
-      }
+        .is-loading {
+            background: red;
+        }
+
+        body {
+            padding-top: 40px;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="app" class="container">
-      <h3>props</h3>
-      <div>
-        <message title="hello world" body="asdfaf asr aiunan"></message>
-        <message title="hello Vue" body="ohu aeuah anfahs"></message>
-        <message title="hello php" body="asdfaf asr aiunan "></message>
-      </div>
-
-      <h3>data bind:responsive</h3>
-      <div>
-        <input type="text" id="input" v-model="message" />
-        <p>{{ message }}</p>
-      </div>
-
-      <h3>The Need For Computed Properties</h3>
-      <p>{{ reverseMessage }}</p>
-
-      <h3>Event Listener</h3>
-      <div>
-        <ul>
-          <li v-for="name in names" v-text="name"></li>
-        </ul>
-        <input type="text" v-model="newName" />
-        <!-- @click 为 v-on:click 的简写 -->
-        <button @click="addName">Add A name</button>
-      </div>
-
-      <h3>Attributes and Class Name Binding</h3>
-      <!-- 传给 v-bind:class 一个对象，以动态地切换 class -->
-      <!-- :class 为 v-bind:class 简写 -->
-      <button :class="{ 'is-loading' : isLoading }" @click="toggleClass">
-        Click me
-      </button>
-
-      <h2>Student's Info FORM</h2>
-      <div>
-        <label>姓名：</label>
-        <input type="text" placeholder="请输入姓名" v-model="name" />
-      </div>
-      <div>
-        <label>性别：</label>
-        <input id="sex01" type="radio" value="1" v-model="sex" />
-        <label for="sex01">男</label>
-        <input id="sex02" type="radio" value="2" v-model="sex" />
-        <label for="sex02">女</label>
-      </div>
-      <div>
-        <label>年龄：</label>
-        <select v-model="age">
-          <option selected>18</option>
-          <option>19</option>
-          <option>20</option>
-          <option>21</option>
-        </select>
-      </div>
-      <div>
-        <label>党员：</label>
-        <input type="checkbox" v-model="member" />
-      </div>
-      <button id="btnCommit" v-on:click="commit">提交</button>
-      <button id="btnReset" v-on:click="reset">重置</button>
-      <label>{{ result }}</label>
-
-      <h2>All Tasks</h2>
-      <ul>
-        <li v-for="task in tasks" v-text="task.description"></li>
-      </ul>
-
-      <h2>Completed Tasks</h2>
-      <ul>
-        <li
-          v-for="task in tasks"
-          v-if="task.completed"
-          v-text="task.description"
-        ></li>
-      </ul>
-
-      <h2>Incompleted Tasks</h2>
-      <ul>
-        <li v-for="task in incompletedTasks" v-text="task.description"></li>
-        <button @click="completeTask">完成任务</button>
-      </ul>
-
-      <h3>Components</h3>
-      <task>Go to work</task>
-      <task>Go to bank</task>
-      <task>Go to store</task>
-
-      <h3>Components Within Components</h3>
-      <task-list>Go to work</task-list>
-
-      <h3>Modal</h3>
-      <modal v-if="showModal" @close="showModal = false"
-        >Something is happening</modal
-      >
-      <button @click="showModal = true">show Modal</button>
-
-      <h3>Tabs</h3>
-      <tabs>
-        <tab name="About us" :selected="true">
-          <h1>Here is the content about our tabs</h1>
-        </tab>
-
-        <tab name="About our culture">
-          <h1>Here is the content about our culture</h1>
-        </tab>
-
-        <tab name="About our vision">
-          <h1>Here is the content about our vision</h1>
-        </tab>
-      </tabs>
-
-      <h3>Component Communication</h3>
-      <!-- 父子通信 -->
-      <!-- 子组件触发事件，父组件监听到，然后触发动作 -->
-      <coupon @applied="onCouponApplied"></coupon>
-      <h1 v-if="couponApplied">Your coupon is applied.</h1>
-
-      <h3>Named Slots in Nutshell</h3>
-      <modal :class="showModal">
-        <template slot="title">My Title</template>
-
-        something is here.
-
-        <div slot="footer">
-          <button class="button is-success">Save changes</button>
-          <button class="button" @click='hideModal'>Cancel</button>
-        </div>
-      </modal>
-
-      <h3>Inline-template</h3>
-      <process-view inline-template>
+        <h3>props</h3>
         <div>
-          <h1>Your Process is {{ processRate }}%</h1>
-
-          <p><button @click="processRate += 10">Update Process</button></p>
+            <message title="hello world" body="asdfaf asr aiunan"></message>
+            <message title="hello Vue" body="ohu aeuah anfahs"></message>
+            <message title="hello php" body="asdfaf asr aiunan "></message>
         </div>
-      </process-view>
+
+        <h3>data bind:responsive</h3>
+        <div>
+            <input type="text" id="input" v-model="message" />
+            <p>{{ message }}</p>
+        </div>
+
+        <h3>The Need For Computed Properties</h3>
+        <p>{{ reverseMessage }}</p>
+
+        <h3>Event Listener</h3>
+        <div>
+            <ul>
+                <li v-for="name in names" v-text="name"></li>
+            </ul>
+            <input type="text" v-model="newName" />
+            <!-- @click 为 v-on:click 的简写 -->
+            <button @click="addName">Add A name</button>
+        </div>
+
+        <h3>Attributes and Class Name Binding</h3>
+        <!-- 传给 v-bind:class 一个对象，以动态地切换 class -->
+        <!-- :class 为 v-bind:class 简写 -->
+        <button :class="{ 'is-loading' : isLoading }" @click="toggleClass">
+            Click me
+        </button>
+
+        <h2>Student's Info FORM</h2>
+        <div>
+            <label>姓名：</label>
+            <input type="text" placeholder="请输入姓名" v-model="name" />
+        </div>
+        <div>
+            <label>性别：</label>
+            <input id="sex01" type="radio" value="1" v-model="sex" />
+            <label for="sex01">男</label>
+            <input id="sex02" type="radio" value="2" v-model="sex" />
+            <label for="sex02">女</label>
+        </div>
+        <div>
+            <label>年龄：</label>
+            <select v-model="age">
+                <option selected>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+            </select>
+        </div>
+        <div>
+            <label>党员：</label>
+            <input type="checkbox" v-model="member" />
+        </div>
+        <button id="btnCommit" v-on:click="commit">提交</button>
+        <button id="btnReset" v-on:click="reset">重置</button>
+        <label>{{ result }}</label>
+
+        <h2>All Tasks</h2>
+        <ul>
+            <li v-for="task in tasks" v-text="task.description"></li>
+        </ul>
+
+        <h2>Completed Tasks</h2>
+        <ul>
+            <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li>
+        </ul>
+
+        <h2>Incompleted Tasks</h2>
+        <ul>
+            <li v-for="task in incompletedTasks" v-text="task.description"></li>
+            <button @click="completeTask">完成任务</button>
+        </ul>
+
+        <h3>Components</h3>
+        <task>Go to work</task>
+        <task>Go to bank</task>
+        <task>Go to store</task>
+
+        <h3>Components Within Components</h3>
+        <task-list>Go to work</task-list>
+
+        <h3>Modal</h3>
+        <modal v-if="showModal" @close="showModal = false">Something is happening</modal>
+        <button @click="showModal = true">show Modal</button>
+
+        <h3>Tabs</h3>
+        <tabs>
+            <tab name="About us" :selected="true">
+                <h1>Here is the content about our tabs</h1>
+            </tab>
+
+            <tab name="About our culture">
+                <h1>Here is the content about our culture</h1>
+            </tab>
+
+            <tab name="About our vision">
+                <h1>Here is the content about our vision</h1>
+            </tab>
+        </tabs>
+
+        <h3>Component Communication</h3>
+        <!-- 父子通信 -->
+        <!-- 子组件触发事件，父组件监听到，然后触发动作 -->
+        <coupon @applied="onCouponApplied"></coupon>
+        <h1 v-if="couponApplied">Your coupon is applied.</h1>
+
+        <h3>Named Slots in Nutshell</h3>
+        <modal :class="showModal">
+            <template slot="title">My Title</template>
+
+            something is here.
+
+            <div slot="footer">
+                <button class="button is-success">Save changes</button>
+                <button class="button" @click='hideModal'>Cancel</button>
+            </div>
+        </modal>
+
+        <h3>Inline-template</h3>
+        <process-view inline-template>
+            <div>
+                <h1>Your Process is {{ processRate }}%</h1>
+
+                <p><button @click="processRate += 10">Update Process</button></p>
+            </div>
+        </process-view>
     </div>
 
     <script src="./static/js/vue.js"></script>
@@ -165,115 +161,116 @@
     <script src="./components/modal.js"></script>
 
     <script>
-      window.Event = new (class {
-        constructor() {
-          this.vue = new Vue();
-        }
-
-        fire(event, data = null) {
-          this.vue.$emit(event, data);
-
-          // this.$emit('applied');
-          // Event.$emit('applied');
-          this.vue.$emit(event, data);
-        }
-
-        listen(event, callback) {
-          this.vue.$on(event, callback);
-        }
-      })();
-
-      new Vue({
-        el: "#app",
-        data: {
-          message: "Hello vue!",
-          name: "",
-          sex: "",
-          age: "",
-          member: "",
-          result: "",
-          names: ["Joe", "Jack", "Jane", "Mike"],
-          newName: "",
-          isLoading: false,
-          tasks: [
-            { description: "Go to the store", completed: false },
-            { description: "Make dinner", completed: true },
-            { description: "Clean room", completed: false }
-          ],
-          showModal: false,
-          couponApplied: false
-        },
-
-        ready: function() {
-          alert("加载完成");
-        },
-
-        methods: {
-          commit: function() {
-            var name = this.name;
-            var sex = "";
-            if (this.sex == 1) {
-              sex = "男";
-            } else if (this.sex == 2) {
-              sex = "女";
+        window.Event = new (class {
+            constructor() {
+                this.vue = new Vue();
             }
-            var age = this.age;
-            var member = "";
-            if (this.member) {
-              member = "党员";
-            } else {
-              member = "非党员";
+
+            fire(event, data = null) {
+                this.vue.$emit(event, data);
+
+                // this.$emit('applied');
+                // Event.$emit('applied');
+                this.vue.$emit(event, data);
             }
-            var result = name + " " + sex + " " + age + " " + member;
-            this.result = result;
-          },
-          reset: function() {
-            this.result = "";
-          },
-          addName() {
-            this.names.push(this.newName);
-            this.newName = "";
-          },
-          toggleClass() {
-            let status = this.isLoading;
-            this.isLoading = !status;
-          },
-          completeTask() {
-            this.completed = true;
-          },
-          onCouponApplied() {
-            this.couponApplied = true;
-          },
-          hideModal() {
-            this.showModal=false
-          }
-        },
 
-        // 计算属性：复杂逻辑
-        // 基于依赖进行缓存:只在相关依赖发生改变时它们才会重新求值
-        // 没有发生改变，多次访问计算 reversMessage 属性会立即返回之前的计算结果，而不必再次执行函数
-        computed: {
-          reverseMessage() {
-            return this.message
-              .split("")
-              .reverse()
-              .join("");
-          },
-          incompletedTasks() {
-            return this.tasks.filter(task => !task.completed);
-          }
-        },
+            listen(event, callback) {
+                this.vue.$on(event, callback);
+            }
+        })();
 
-        created() {
-          Event.listen("applied", () => alert("Handing it!"));
-        },
+        new Vue({
+            el: "#app",
+            data: {
+                message: "Hello vue!",
+                name: "",
+                sex: "",
+                age: "",
+                member: "",
+                result: "",
+                names: ["Joe", "Jack", "Jane", "Mike"],
+                newName: "",
+                isLoading: false,
+                tasks: [
+                    { description: "Go to the store", completed: false },
+                    { description: "Make dinner", completed: true },
+                    { description: "Clean room", completed: false }
+                ],
+                showModal: false,
+                couponApplied: false
+            },
 
-        watch: {
-          sex: function(val, oldVal) {
-            console.log("oldVal = " + oldVal + " val = " + val);
-          }
-        }
-      });
+            ready: function () {
+                alert("加载完成");
+            },
+
+            methods: {
+                commit: function () {
+                    var name = this.name;
+                    var sex = "";
+                    if (this.sex == 1) {
+                        sex = "男";
+                    } else if (this.sex == 2) {
+                        sex = "女";
+                    }
+                    var age = this.age;
+                    var member = "";
+                    if (this.member) {
+                        member = "党员";
+                    } else {
+                        member = "非党员";
+                    }
+                    var result = name + " " + sex + " " + age + " " + member;
+                    this.result = result;
+                },
+                reset: function () {
+                    this.result = "";
+                },
+                addName() {
+                    this.names.push(this.newName);
+                    this.newName = "";
+                },
+                toggleClass() {
+                    let status = this.isLoading;
+                    this.isLoading = !status;
+                },
+                completeTask() {
+                    this.completed = true;
+                },
+                onCouponApplied() {
+                    this.couponApplied = true;
+                },
+                hideModal() {
+                    this.showModal = false
+                }
+            },
+
+            // 计算属性：复杂逻辑
+            // 基于依赖进行缓存:只在相关依赖发生改变时它们才会重新求值
+            // 没有发生改变，多次访问计算 reversMessage 属性会立即返回之前的计算结果，而不必再次执行函数
+            computed: {
+                reverseMessage() {
+                    return this.message
+                        .split("")
+                        .reverse()
+                        .join("");
+                },
+                incompletedTasks() {
+                    return this.tasks.filter(task => !task.completed);
+                }
+            },
+
+            created() {
+                Event.listen("applied", () => alert("Handing it!"));
+            },
+
+            watch: {
+                sex: function (val, oldVal) {
+                    console.log("oldVal = " + oldVal + " val = " + val);
+                }
+            }
+        });
     </script>
-  </body>
+</body>
+
 </html>

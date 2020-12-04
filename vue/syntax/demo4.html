@@ -1,73 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title></title>
-        <style>
-            button {
-                border: 1px solid #666;
-                background: none;
-                padding: 4px 10px;
-                outline: none;
-                padding: 6px 32px;
-            }
 
-            .loading {
-                background: url(img/loading.gif) 0 0 no-repeat;
-                background-size: contain;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        button {
+            border: 1px solid #666;
+            background: none;
+            padding: 4px 10px;
+            outline: none;
+            padding: 6px 32px;
+        }
 
-    <body>
-        <div id="app">
-            <button id="btn">获取数据（Js）</button>
-            <div id="msg"></div>
-        </div>
+        .loading {
+            background: url(img/loading.gif) 0 0 no-repeat;
+            background-size: contain;
+        }
+    </style>
+</head>
 
-        <div id="app2" style="margin-top: 60px;">
-            <button :class="{loading:isLoading}" @click="load">
-                获取数据（Vue）
-            </button>
-            <div>{{msg}}</div>
-        </div>
+<body>
+    <div id="app">
+        <button id="btn">获取数据（Js）</button>
+        <div id="msg"></div>
+    </div>
 
-        <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
-        <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+    <div id="app2" style="margin-top: 60px;">
+        <button :class="{loading:isLoading}" @click="load">
+            获取数据（Vue）
+        </button>
+        <div>{{msg}}</div>
+    </div>
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#btn").click(function () {
-                    $(this).addClass("loading");
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
 
-                    var _this = $(this);
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $(this).addClass("loading");
 
+                var _this = $(this);
+
+                setTimeout(function () {
+                    $("#msg").html("我是从服务端获取到的数据");
+
+                    _this.removeClass("loading");
+                }, 500);
+            });
+        });
+
+        new Vue({
+            el: "#app2",
+            data: {
+                isLoading: false,
+                msg: "",
+            },
+            methods: {
+                load: function () {
+                    this.isLoading = true;
+                    var _this = this;
                     setTimeout(function () {
-                        $("#msg").html("我是从服务端获取到的数据");
+                        _this.msg = "我是从服务端获取到的数据";
 
-                        _this.removeClass("loading");
+                        _this.isLoading = false;
                     }, 500);
-                });
-            });
-
-            new Vue({
-                el: "#app2",
-                data: {
-                    isLoading: false,
-                    msg: "",
                 },
-                methods: {
-                    load: function () {
-                        this.isLoading = true;
-                        var _this = this;
-                        setTimeout(function () {
-                            _this.msg = "我是从服务端获取到的数据";
+            },
+        });
+    </script>
+</body>
 
-                            _this.isLoading = false;
-                        }, 500);
-                    },
-                },
-            });
-        </script>
-    </body>
 </html>

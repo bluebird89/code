@@ -1,234 +1,232 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>sample</title>
-        <script src="./../static/js/vue.js"></script>
-        <script src="./../static/js/lodash.js"></script>
-        <script src="./../static/js/axios.js"></script>
-    </head>
 
-    <body>
-        <div id="app">
-            <h3>声明式渲染</h3>
-            <!-- 文本插值 -->
-            <p>Original message: "{{ message2 }}"</p>
-            <p>Computed reversed message: "{{ reversedMessage }}"</p>
+<head>
+    <meta charset="utf-8" />
+    <title>sample</title>
+    <script src="./../static/js/vue.js"></script>
+    <script src="./../static/js/lodash.js"></script>
+    <script src="./../static/js/axios.js"></script>
+</head>
 
-            <!-- 绑定元素 attribute -->
-            <span v-bind:title="message1">
-                鼠标悬停几秒钟查看此处动态绑定的提示信息！
-            </span>
+<body>
+    <div id="app">
+        <h3>声明式渲染</h3>
+        <!-- 文本插值 -->
+        <p>Original message: "{{ message2 }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
 
-            <!-- 实现表单输入和应用状态之间的双向绑定 -->
-            <h3>处理用户输入|输入和应用状态双向绑定</h3>
-            <p>{{ message }}</p>
-            <input v-model="message" />
-            <button @click="reverseMess">逆转</button>
-            <br />
+        <!-- 绑定元素 attribute -->
+        <span v-bind:title="message1">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
 
-            <h3>条件</h3>
-            <input v-model="type" />
-            <p v-if="type === 'A'">A:现在你看到我了</p>
-            <p v-else-if="type === 'B'">B:第二条分支</p>
-            <p v-else>default show 😢</p>
+        <!-- 实现表单输入和应用状态之间的双向绑定 -->
+        <h3>处理用户输入|输入和应用状态双向绑定</h3>
+        <p>{{ message | capitalize }}</p>
+        <input v-model="message" />
+        <button @click="reverseMess">逆转</button>
+        <br />
 
-            <h3>循环</h3>
-            <ul>
-                <li v-for="(todo,index) in todos" :key="todo.text">
-                    {{index}} - {{ todo.text }}
-                </li>
-            </ul>
+        <h3>条件</h3>
+        <input v-model="type" />
+        <p v-if="type === 'A'">A:现在你看到我了</p>
+        <p v-else-if="type === 'B'">B:第二条分支</p>
+        <p v-else>default show 😢</p>
 
-            <ul v-for="set in sets">
-                <li v-for="n in even(set)">{{ n }}</li>
-            </ul>
-            <div>
-                <span v-for="n in 10">{{ n }} </span>
-            </div>
+        <h3>循环</h3>
+        <ul>
+            <li v-for="(todo,index) in todos" :key="todo.text">
+                {{index}} - {{ todo.text }}
+            </li>
+        </ul>
 
-            <h3>组件渲染</h3>
-            <ol>
-                <todo-item
-                    v-for="item in todos"
-                    v-bind:todo="item"
-                    v-bind:key="item.id"
-                ></todo-item>
-            </ol>
+        <ul v-for="set in sets">
+            <li v-for="n in even(set)">{{ n }}</li>
+        </ul>
+        <div>
+            <span v-for="n in 10">{{ n }} </span>
+        </div>
 
-            {{ fullName }}
+        <h3>组件渲染</h3>
+        <ol>
+            <todo-item v-for="item in todos" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+        </ol>
 
-            <h3>Watch 侦听属性</h3>
-            <p>
-                Ask a yes/no question:
-                <input v-model="question" />
-            </p>
-            <p>{{ answer }}</p>
+        {{ fullName }}
 
-            <!-- <app-nav></app-nav>
+        <h3>Watch 侦听属性</h3>
+        <p>
+            Ask a yes/no question:
+            <input v-model="question" />
+        </p>
+        <p>{{ answer }}</p>
+
+        <!-- <app-nav></app-nav>
       <app-view>
         <app-sidebar></app-sidebar>
         <app-content></app-content>
       </app-view> -->
 
-            <h3>bind class</h3>
-            <div v-bind:class="classObject"></div>
-            <div
-                v-bind:class="[isActive ? isActive : '', error? 'text-danger':'']"
-            >
-                <my-component class="baz boo"></my-component>
-            </div>
-
-            <div
-                v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"
-            ></div>
-
-            <h3>用　key 管理可复用元素</h3>
-            <template v-if="loginType === 'username'">
-                <label>Username:</label>
-                <input placeholder="Enter your username" key="username-input" />
-            </template>
-            <template v-else>
-                <label>Email:</label>
-                <input
-                    placeholder="Enter your email address"
-                    key="email-input"
-                />
-            </template>
-            <button @click="changeType">切换登录方式</button>
+        <h3>bind class</h3>
+        <div v-bind:class="classObject"></div>
+        <div v-bind:class="[isActive ? isActive : '', error? 'text-danger':'']">
+            <my-component class="baz boo"></my-component>
         </div>
-    </body>
-    <script type="text/javascript">
-        Vue.component("todo-item", {
-            props: ["todo"],
-            template: "<li>{{todo.key}}  {{ todo.text }}</li>",
-        });
 
-        Vue.component("my-component", {
-            template: '<p class="foo bar">Hi</p>',
-        });
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 
-        var watchExampleVM = new Vue({
-            el: "#app",
-            data: {
-                message: "Hello Vue!",
-                message1: "页面加载于 " + new Date(),
-                message2: "Hello PHP",
-                type: "A",
-                todos: [
-                    {
-                        text: "学习 JavaScript",
-                    },
-                    {
-                        text: "学习 Vue",
-                    },
-                    {
-                        text: "做个项目",
-                    },
-                ],
-                sets: [
-                    [1, 2, 3, 4, 5],
-                    [6, 7, 8, 9, 10],
-                ],
-                groceryList: [
-                    {
-                        id: 0,
-                        text: "蔬菜",
-                    },
-                    {
-                        id: 1,
-                        text: "水果",
-                    },
-                    {
-                        id: 2,
-                        text: "随便",
-                    },
-                ],
-                firstName: "Foo",
-                lastName: "Bar",
-                question: "",
-                answer: "I cannot give you an answer until you ask a question!",
-                isActive: true,
-                error: null,
-                activeColor: "red",
-                fontSize: 30,
-                loginType: "username",
+        <h3>用　key 管理可复用元素</h3>
+        <template v-if="loginType === 'username'">
+            <label>Username:</label>
+            <input placeholder="Enter your username" key="username-input" />
+        </template>
+        <template v-else>
+            <label>Email:</label>
+            <input placeholder="Enter your email address" key="email-input" />
+        </template>
+        <button @click="changeType">切换登录方式</button>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.component("todo-item", {
+        props: ["todo"],
+        template: "<li>{{todo.key}}  {{ todo.text }}</li>",
+    });
+
+    Vue.component("my-component", {
+        template: '<p class="foo bar">Hi</p>',
+    });
+
+    var watchExampleVM = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello Vue!",
+            message1: "页面加载于 " + new Date(),
+            message2: "Hello PHP",
+            type: "A",
+            todos: [
+                {
+                    text: "学习 JavaScript",
+                },
+                {
+                    text: "学习 Vue",
+                },
+                {
+                    text: "做个项目",
+                },
+            ],
+            sets: [
+                [1, 2, 3, 4, 5],
+                [6, 7, 8, 9, 10],
+            ],
+            groceryList: [
+                {
+                    id: 0,
+                    text: "蔬菜",
+                },
+                {
+                    id: 1,
+                    text: "水果",
+                },
+                {
+                    id: 2,
+                    text: "随便",
+                },
+            ],
+            firstName: "Foo",
+            lastName: "Bar",
+            question: "",
+            answer: "I cannot give you an answer until you ask a question!",
+            isActive: true,
+            error: null,
+            activeColor: "red",
+            fontSize: 30,
+            loginType: "username",
+        },
+        filters: {
+            capitalize: function (value) {
+                if (!value) return ''
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            }
+        },
+        computed: {
+            // 计算属性的 getter
+            reversedMessage: function () {
+                // `this` 指向 vm 实例
+                return this.message2.split("").reverse().join("");
             },
-            computed: {
-                // 计算属性的 getter
-                reversedMessage: function () {
-                    // `this` 指向 vm 实例
-                    return this.message2.split("").reverse().join("");
+            fullName: {
+                get: function () {
+                    return this.firstName + " " + this.lastName;
                 },
-                fullName: {
-                    get: function () {
-                        return this.firstName + " " + this.lastName;
-                    },
-                    set: function (newValue) {
-                        var names = newValue.split(" ");
-                        this.firstName = names[0];
-                        this.lastName = names[names.length - 1];
-                    },
-                },
-                classObject: function () {
-                    return {
-                        active: this.isActive && !this.error,
-                        "text-danger":
-                            this.error && this.error.type === "fatal",
-                    };
+                set: function (newValue) {
+                    var names = newValue.split(" ");
+                    this.firstName = names[0];
+                    this.lastName = names[names.length - 1];
                 },
             },
-            methods: {
-                reverseMess: function () {
-                    this.message = this.message.split("").reverse().join("");
-                },
-                getAnswer: function () {
-                    if (this.question.indexOf("?") === -1) {
-                        this.answer =
-                            "Questions usually contain a question mark. ;-)";
-                        return;
-                    }
-                    this.answer = "Thinking...";
-                    var vm = this;
-                    axios
-                        .get("https://yesno.wtf/api")
-                        .then(function (response) {
-                            vm.answer = _.capitalize(response.data.answer);
-                        })
-                        .catch(function (error) {
-                            vm.answer =
-                                "Error! Could not reach the API. " + error;
-                        });
-                },
-                changeType: function () {
-                    if (this.loginType == "username") {
-                        this.loginType = "email";
-                    } else {
-                        this.loginType = "username";
-                    }
-                },
-                even: function (numbers) {
-                    return numbers.filter(function (number) {
-                        return number % 2 === 0;
+            classObject: function () {
+                return {
+                    active: this.isActive && !this.error,
+                    "text-danger":
+                        this.error && this.error.type === "fatal",
+                };
+            },
+        },
+        methods: {
+            reverseMess: function () {
+                this.message = this.message.split("").reverse().join("");
+            },
+            getAnswer: function () {
+                if (this.question.indexOf("?") === -1) {
+                    this.answer =
+                        "Questions usually contain a question mark. ;-)";
+                    return;
+                }
+                this.answer = "Thinking...";
+                var vm = this;
+                axios
+                    .get("https://yesno.wtf/api")
+                    .then(function (response) {
+                        vm.answer = _.capitalize(response.data.answer);
+                    })
+                    .catch(function (error) {
+                        vm.answer =
+                            "Error! Could not reach the API. " + error;
                     });
-                },
             },
+            changeType: function () {
+                if (this.loginType == "username") {
+                    this.loginType = "email";
+                } else {
+                    this.loginType = "username";
+                }
+            },
+            even: function (numbers) {
+                return numbers.filter(function (number) {
+                    return number % 2 === 0;
+                });
+            },
+        },
 
-            watch: {
-                question: function (newQuestion, oldQuestion) {
-                    this.answer = "Waiting for you to stop typing...";
-                    this.debouncedGetAnswer();
-                },
+        watch: {
+            question: function (newQuestion, oldQuestion) {
+                this.answer = "Waiting for you to stop typing...";
+                this.debouncedGetAnswer();
             },
+        },
 
-            created: function () {
-                // `_.debounce` 是一个通过 Lodash 限制操作频率的函数。
-                // 在这个例子中，希望限制访问 yesno.wtf/api 的频率
-                // AJAX 请求直到用户输入完毕才会发出。想要了解更多关于
-                // `_.debounce` 函数 (及其近亲 `_.throttle`) 的知识，
-                // 请参考：https://lodash.com/docs#debounce
-                this.debouncedGetAnswer = _.debounce(this.getAnswer, 500);
-            },
-        });
-    </script>
+        created: function () {
+            // `_.debounce` 是一个通过 Lodash 限制操作频率的函数。
+            // 在这个例子中，希望限制访问 yesno.wtf/api 的频率
+            // AJAX 请求直到用户输入完毕才会发出。想要了解更多关于
+            // `_.debounce` 函数 (及其近亲 `_.throttle`) 的知识，
+            // 请参考：https://lodash.com/docs#debounce
+            this.debouncedGetAnswer = _.debounce(this.getAnswer, 500);
+        },
+    });
+</script>
+
 </html>

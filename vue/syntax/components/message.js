@@ -1,5 +1,5 @@
-Vue.component('message',{
-    props:['title','body'],
+Vue.component('message', {
+    props: ['title', 'body'],
 
     data() {
         return {
@@ -7,14 +7,14 @@ Vue.component('message',{
         }
     },
 
-    template:`
+    template: `
     <article class="message" v-show="isVisiable">
         <div class="message-header">
             <p>{{ title }}</p>
             <button class="delete" aria-label="delete" @click='isVisiable = false'></button>
         </div>
         <div class="message-body">
-            {{ body }}   
+            {{ body }}
         </div>
     </article>
     `

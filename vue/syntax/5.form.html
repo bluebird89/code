@@ -1,265 +1,211 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>表单控件</title>
-        <script src="./../static/js/vue.js"></script>
-    </head>
-    <body>
-        <div id="app">
-            <form action="">
-                <label>1.单行文本</label>
-                <p>Message is {{ message }}</p>
-                <input v-model.lazy.trim="message" placeholder="edit me" />
-                <br />
-                <label>Age:</label>
-                <br />
-                <input v-model.number="age" placeholder="Age" />
-                <br />
 
-                <label>2.多行文本</label>
-                <span>Multiline info is:</span>
-                <p style="white-space: pre-line;">{{ message }}</p>
-                <br />
-                <textarea
-                    v-model="message"
-                    placeholder="add Multiline lines"
-                ></textarea>
-                <br />
+<head>
+    <meta charset="UTF-8" />
+    <title>表单控件</title>
+    <script src="./../static/js/vue.js"></script>
+</head>
 
-                <label>3.1单个勾选框</label>
-                <br />
-                <input type="checkbox" id="checkbox" v-model="checked" />
-                <label for="checkbox">{{ checked }}</label>
-                <br />
-                <label>3.2多个勾选框</label>
-                <br />
-                <input
-                    type="checkbox"
-                    id="jack"
-                    value="Jack"
-                    v-model="checkedNames"
-                />
-                <label for="jack">Jack</label>
-                <input
-                    type="checkbox"
-                    id="jack"
-                    value="John"
-                    v-model="checkedNames"
-                />
-                <label for="john">John</label>
-                <input
-                    type="checkbox"
-                    id="jack"
-                    value="Mike"
-                    v-model="checkedNames"
-                />
-                <label for="mike">Mike</label>
-                <br />
-                <span>Checked names:{{ checkedNames }}</span>
-                <hr />
+<body>
+    <div id="app">
+        <form action="">
+            <label>1.单行文本</label>
+            <p>Message is {{ message }}</p>
+            <input v-model.lazy.trim="message" placeholder="edit me" />
+            <br />
+            <label>Age:</label>
+            <br />
+            <input v-model.number="age" placeholder="Age" />
+            <br />
 
-                <label>4.单选按钮</label>
-                <input type="radio" id="one" value="one" v-model="picked" />
-                <label for="one">One</label>
-                <br />
-                <input
-                    type="radio"
-                    id="two"
-                    value="two"
-                    v-model="picked"
-                    value="two"
-                />
-                <label for="two">Two</label>
-                <br />
-                <span>Picked:{{ picked }}</span>
-                <br />
+            <label>2.多行文本</label>
+            <span>Multiline info is:</span>
+            <p style="white-space: pre-line;">{{ message }}</p>
+            <br />
+            <textarea v-model="message" placeholder="add Multiline lines"></textarea>
+            <br />
 
-                <label>5.选择列表</label>
+            <label>3.1单个勾选框</label>
+            <br />
+            <input type="checkbox" id="checkbox" v-model="checked" />
+            <label for="checkbox">{{ checked }}</label>
+            <br />
+            <label>3.2多个勾选框</label>
+            <br />
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="jack" value="John" v-model="checkedNames" />
+            <label for="john">John</label>
+            <input type="checkbox" id="jack" value="Mike" v-model="checkedNames" />
+            <label for="mike">Mike</label>
+            <br />
+            <span>Checked names:{{ checkedNames }}</span>
+            <hr />
 
-                <br />
-                <label>单选列表</label>
-                <br />
-                <select v-model="selected">
-                    <option disabled value="">Please choose：</option>
-                    <option value="abc">China</option>
-                    <option>U.S.A</option>
-                    <option>U.K</option>
-                </select>
-                <br />
-                <span>Selected:{{ selected }}</span>
-                <br />
-                <label>多选列表</label>
-                <br />
-                <select
-                    v-model="multiple_selected"
-                    multiple
-                    style="width: 150px;"
-                >
-                    <option>China</option>
-                    <option>U.S.A</option>
-                    <option>Japan</option>
-                    <option>Hongkong</option>
-                    <option>Korea</option>
-                    <option>France</option>
-                </select>
-                <br />
-                <span>Selected:{{ multiple_selected }}</span>
-                <br />
-                <label>动态列表</label>
-                <br />
-                <select v-model="dynatic_selected" style="width: 150px;">
-                    <option
-                        v-for="option in options"
-                        v-bind:value="option.value"
-                    >
-                        {{ option.text }}
-                    </option>
-                </select>
-                <br />
-                <span>Selected:{{ dynatic_selected }}</span>
+            <label>4.单选按钮</label>
+            <input type="radio" id="one" value="one" v-model="picked" />
+            <label for="one">One</label>
+            <br />
+            <input type="radio" id="two" value="two" v-model="picked" value="two" />
+            <label for="two">Two</label>
+            <br />
+            <span>Picked:{{ picked }}</span>
+            <br />
 
-                <label for="文本">文本</label>
-                <input v-model="message" placeholder="edit me" />
-                <p>Message is: {{ message }}</p>
+            <label>5.选择列表</label>
 
-                <label for="多行文本">多行文本</label>
-                <textarea
-                    v-model="messages"
-                    placeholder="add multiple lines"
-                ></textarea>
-                <br />
-                <p style="white-space: pre-line;">{{ messages }}</p>
+            <br />
+            <label>单选列表</label>
+            <br />
+            <select v-model="selected">
+                <option disabled value="">Please choose：</option>
+                <option value="abc">China</option>
+                <option>U.S.A</option>
+                <option>U.K</option>
+            </select>
+            <br />
+            <span>Selected:{{ selected }}</span>
+            <br />
+            <label>多选列表</label>
+            <br />
+            <select v-model="multiple_selected" multiple style="width: 150px;">
+                <option>China</option>
+                <option>U.S.A</option>
+                <option>Japan</option>
+                <option>Hongkong</option>
+                <option>Korea</option>
+                <option>France</option>
+            </select>
+            <br />
+            <span>Selected:{{ multiple_selected }}</span>
+            <br />
+            <label>动态列表</label>
+            <br />
+            <select v-model="dynatic_selected" style="width: 150px;">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <br />
+            <span>Selected:{{ dynatic_selected }}</span>
 
-                <label for="">Checkbox</label>
-                <input type="checkbox" id="checkbox" v-model="checked" />
-                <label for="checkbox">{{ checked }}</label>
+            <label for="文本">文本</label>
+            <input v-model="message" placeholder="edit me" />
+            <p>Message is: {{ message }}</p>
 
-                <input
-                    type="checkbox"
-                    id="jack"
-                    value="Jack"
-                    v-model="checkedNames"
-                />
-                <label for="jack">Jack</label>
-                <input
-                    type="checkbox"
-                    id="john"
-                    value="John"
-                    v-model="checkedNames"
-                />
-                <label for="john">John</label>
-                <input
-                    type="checkbox"
-                    id="mike"
-                    value="Mike"
-                    v-model="checkedNames"
-                />
-                <label for="mike">Mike</label>
-                <br />
-                <span>Checked names: {{ checkedNames }}</span>
+            <label for="多行文本">多行文本</label>
+            <textarea v-model="messages" placeholder="add multiple lines"></textarea>
+            <br />
+            <p style="white-space: pre-line;">{{ messages }}</p>
 
-                <label for="">Radio</label>
-                <input type="radio" id="one" value="One" v-model="picked" />
-                <label for="one">One</label>
-                <br />
-                <input type="radio" id="two" value="Two" v-model="picked" />
-                <label for="two">Two</label>
-                <br />
-                <span>Picked: {{ picked }}</span>
-                <input type="radio" v-model="pick" v-bind:value="a" />
+            <label for="">Checkbox</label>
+            <input type="checkbox" id="checkbox" v-model="checked" />
+            <label for="checkbox">{{ checked }}</label>
 
-                <label for="">Select</label>
-                <select v-model="selected">
-                    <option disabled value="">请选择</option>
-                    <option>A</option>
-                    <option>B</option>
-                    <option>C</option>
-                </select>
-                <span>Selected: {{ selected }}</span>
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames" />
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
+            <label for="mike">Mike</label>
+            <br />
+            <span>Checked names: {{ checkedNames }}</span>
 
-                <label for="">Select</label>
-                <select v-model="selected" multiple style="width: 50px;">
-                    <option>A</option>
-                    <option>B</option>
-                    <option>C</option>
-                </select>
-                <br />
-                <span>Selected: {{ selected }}</span>
+            <label for="">Radio</label>
+            <input type="radio" id="one" value="One" v-model="picked" />
+            <label for="one">One</label>
+            <br />
+            <input type="radio" id="two" value="Two" v-model="picked" />
+            <label for="two">Two</label>
+            <br />
+            <span>Picked: {{ picked }}</span>
+            <input type="radio" v-model="pick" v-bind:value="a" />
 
-                <select v-model="selected">
-                    <option
-                        v-for="option in options"
-                        v-bind:value="option.value"
-                    >
-                        {{ option.text }}
-                    </option>
-                </select>
-                <span>Selected: {{ selected }}</span>
-                <!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
+            <label for="">Select</label>
+            <select v-model="selected">
+                <option disabled value="">请选择</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected: {{ selected }}</span>
 
-                <select v-model="selected">
-                    <option value="abc">ABC</option>
-                </select>
+            <label for="">Select</label>
+            <select v-model="selected" multiple style="width: 50px;">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <br />
+            <span>Selected: {{ selected }}</span>
 
-                <select v-model="selected">
-                    <!-- 内联对象字面量 -->
-                    <option v-bind:value="{ number: 123 }">123</option>
-                </select>
+            <select v-model="selected">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+            <!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
 
-                <!-- 当选中时，`picked` 为字符串 "a" -->
-                <input type="radio" v-model="picked" value="a" />
-                <!-- `toggle` 为 true 或 false -->
-                <input type="checkbox" v-model="toggle" />
+            <select v-model="selected">
+                <option value="abc">ABC</option>
+            </select>
 
-                <input
-                    type="checkbox"
-                    v-model="toggle"
-                    true-value="yes"
-                    false-value="no"
-                />
+            <select v-model="selected">
+                <!-- 内联对象字面量 -->
+                <option v-bind:value="{ number: 123 }">123</option>
+            </select>
 
-                <!-- 在“change”时而非“input”时更新 -->
-                <input v-model.lazy="msg" />
-                <input v-model.number="age" type="number" />
-                <input v-model.trim="msg" />
-            </form>
-        </div>
-    </body>
-    <script>
-        new Vue({
-            el: "#app",
-            data: {
-                message: "",
-                messages: "",
-                msg: "",
-                checkedNames: [{ Jack: true }],
-                a: "",
-                age: 18,
-                picked: "",
-                selected: "",
-                selected: [],
-                selected: "A",
-                options: [
-                    { text: "One", value: "A" },
-                    { text: "Two", value: "B" },
-                    { text: "Three", value: "C" },
-                ],
-                toggle: "yes",
-                pick: "a",
-                selected: {
-                    number: 123,
-                },
+            <!-- 当选中时，`picked` 为字符串 "a" -->
+            <input type="radio" v-model="picked" value="a" />
+            <!-- `toggle` 为 true 或 false -->
+            <input type="checkbox" v-model="toggle" />
 
-                checked: false,
-                multiple_selected: [],
-                dynatic_selected: 1,
-                options: [
-                    { text: "China", value: 1 },
-                    { text: "Germany", value: 2 },
-                    { text: "Spanish", value: 3 },
-                ],
+            <input type="checkbox" v-model="toggle" true-value="yes" false-value="no" />
+
+            <!-- 在“change”时而非“input”时更新 -->
+            <input v-model.lazy="msg" />
+            <input v-model.number="age" type="number" />
+            <input v-model.trim="msg" />
+        </form>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            message: "",
+            messages: "",
+            msg: "",
+            checkedNames: [{ Jack: true }],
+            a: "",
+            age: 18,
+            picked: "",
+            selected: "",
+            selected: [],
+            selected: "A",
+            options: [
+                { text: "One", value: "A" },
+                { text: "Two", value: "B" },
+                { text: "Three", value: "C" },
+            ],
+            toggle: "yes",
+            pick: "a",
+            selected: {
+                number: 123,
             },
-        });
-    </script>
+
+            checked: false,
+            multiple_selected: [],
+            dynatic_selected: 1,
+            options: [
+                { text: "China", value: 1 },
+                { text: "Germany", value: 2 },
+                { text: "Spanish", value: 3 },
+            ],
+        },
+    });
+</script>
+
 </html>

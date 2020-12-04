@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>sample</title>
-        <script src="./../static/js/vue.js"></script>
-    </head>
-    <body>
-        <div id="app"></div>
-    </body>
-    <script>
-        var myMixin = {
-            data: function () {
-                return {
-                    message: "hello",
-                    foo: "abc",
-                };
-            },
-            created: function () {
-                console.log("混入对象的钩子被调用");
-            },
-            methods: {
-                hello: function () {
-                    console.log("hello from mixin!");
-                },
-            },
-        };
 
-        // 定义一个使用混入对象的组件
-        var Component = Vue.extend({
-            mixins: [myMixin],
-        });
+<head>
+    <meta charset="utf-8" />
+    <title>sample</title>
+    <script src="./../static/js/vue.js"></script>
+</head>
 
-        var component = new Component();
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    var myMixin = {
+        data: function () {
+            return {
+                message: "hello",
+                foo: "abc",
+            };
+        },
+        created: function () {
+            console.log("混入对象的钩子被调用");
+        },
+        methods: {
+            hello: function () {
+                console.log("hello from mixin!");
+            },
+        },
+    };
 
-        new Vue({
-            mixins: [myMixin],
-            data: function () {
-                return {
-                    message: "goodbye",
-                    bar: "def",
-                };
-            },
-            created: function () {
-                console.log("组件钩子被调用");
-                console.log(this.$data);
-            },
-        });
+    // 定义一个使用混入对象的组件
+    var Component = Vue.extend({
+        mixins: [myMixin],
+    });
 
-        Vue.mixin({
-            created: function () {
-                var myOption = this.$options.myOption;
-                if (myOption) {
-                    console.log(myOption);
-                }
-            },
-        });
-    </script>
+    var component = new Component();
+
+    new Vue({
+        mixins: [myMixin],
+        data: function () {
+            return {
+                message: "goodbye",
+                bar: "def",
+            };
+        },
+        created: function () {
+            console.log("组件钩子被调用");
+            console.log(this.$data);
+        },
+    });
+
+    Vue.mixin({
+        created: function () {
+            var myOption = this.$options.myOption;
+            if (myOption) {
+                console.log(myOption);
+            }
+        },
+    });
+</script>
+
 </html>

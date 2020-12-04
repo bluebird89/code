@@ -1,166 +1,166 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8" />
 
-        <title>Button</title>
+<head>
+    <meta charset="utf-8" />
 
-        <style>
-            .mybutton {
-                background: none;
-                outline: none;
-                border: 1px solid transparent;
-                border-radius: 4px;
-                line-height: 1.5;
-                cursor: pointer;
-                transition-duration: 0.5s;
-                color: #fff;
-                font-size: 12px;
-            }
+    <title>Button</title>
 
-            .mybutton:hover {
-                opacity: 0.7;
-            }
+    <style>
+        .mybutton {
+            background: none;
+            outline: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            line-height: 1.5;
+            cursor: pointer;
+            transition-duration: 0.5s;
+            color: #fff;
+            font-size: 12px;
+        }
 
-            .primary {
-                background-color: #2d8cf0;
-            }
+        .mybutton:hover {
+            opacity: 0.7;
+        }
 
-            .success {
-                background-color: #19be6b;
-            }
+        .primary {
+            background-color: #2d8cf0;
+        }
 
-            .warning {
-                background-color: #f90;
-            }
+        .success {
+            background-color: #19be6b;
+        }
 
-            .error {
-                background-color: #ed4014;
-            }
+        .warning {
+            background-color: #f90;
+        }
 
-            .mybutton[disabled] {
-                color: #c5c8ce;
-                background-color: #f7f7f7;
-                border-color: #dcdee2;
-                cursor: not-allowed;
-            }
+        .error {
+            background-color: #ed4014;
+        }
 
-            .mybutton[loading] i {
-                display: inline-block;
-                width: 18px;
-                height: 14px;
-                margin-right: 4px;
-                background: url(img/loading.gif) 0 0 no-repeat;
-                background-size: contain;
-                vertical-align: middle;
-            }
+        .mybutton[disabled] {
+            color: #c5c8ce;
+            background-color: #f7f7f7;
+            border-color: #dcdee2;
+            cursor: not-allowed;
+        }
 
-            .mybutton[size="large"] {
-                padding: 7px 20px 8px;
-            }
+        .mybutton[loading] i {
+            display: inline-block;
+            width: 18px;
+            height: 14px;
+            margin-right: 4px;
+            background: url(img/loading.gif) 0 0 no-repeat;
+            background-size: contain;
+            vertical-align: middle;
+        }
 
-            .mybutton[size="medium"] {
-                padding: 5px 15px 6px;
-            }
+        .mybutton[size="large"] {
+            padding: 7px 20px 8px;
+        }
 
-            .mybutton[size="small"] {
-                padding: 3px 10px 3px;
-            }
-        </style>
-    </head>
+        .mybutton[size="medium"] {
+            padding: 5px 15px 6px;
+        }
 
-    <body>
-        <div id="app">
-            <div style="margin-bottom: 20px;">
-                <mybutton type="primary" size="large" @click="clickController"
-                    >Primary</mybutton
-                >
+        .mybutton[size="small"] {
+            padding: 3px 10px 3px;
+        }
+    </style>
+</head>
 
-                <mybutton type="success" size="large">Success</mybutton>
+<body>
+    <div id="app">
+        <div style="margin-bottom: 20px;">
+            <mybutton type="primary" size="large" @click="clickController">Primary</mybutton>
 
-                <mybutton type="warning" size="large">Warning</mybutton>
+            <mybutton type="success" size="large">Success</mybutton>
 
-                <mybutton type="error" size="large">Error</mybutton>
+            <mybutton type="warning" size="large">Warning</mybutton>
 
-                <mybutton disabled size="large">Disabled</mybutton>
+            <mybutton type="error" size="large">Error</mybutton>
 
-                <mybutton loading size="large">Loading</mybutton>
-            </div>
+            <mybutton disabled size="large">Disabled</mybutton>
 
-            <div style="margin-bottom: 20px;">
-                <mybutton type="primary">Primary</mybutton>
-
-                <mybutton type="success">Success</mybutton>
-
-                <mybutton type="warning">Warning</mybutton>
-
-                <mybutton type="error">Error</mybutton>
-
-                <mybutton disabled type="primary">Disabled</mybutton>
-
-                <mybutton loading type="primary">Loading</mybutton>
-            </div>
-
-            <div>
-                <mybutton type="primary" size="small">Primary</mybutton>
-
-                <mybutton type="success" size="small">Success</mybutton>
-
-                <mybutton type="warning" size="small">Warning</mybutton>
-
-                <mybutton type="error" size="small">Error</mybutton>
-
-                <mybutton disabled size="small">Disabled</mybutton>
-
-                <mybutton loading size="small">Loading</mybutton>
-            </div>
+            <mybutton loading size="large">Loading</mybutton>
         </div>
 
-        <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+        <div style="margin-bottom: 20px;">
+            <mybutton type="primary">Primary</mybutton>
 
-        <script type="text/javascript">
-            Vue.component("mybutton", {
-                props: {
-                    disabled: {
-                        type: Boolean,
-                        default: false,
-                    },
+            <mybutton type="success">Success</mybutton>
 
-                    loading: {
-                        type: Boolean,
-                        default: false,
-                    },
+            <mybutton type="warning">Warning</mybutton>
 
-                    type: {
-                        type: String,
-                        default: "primary",
-                    },
+            <mybutton type="error">Error</mybutton>
 
-                    size: {
-                        type: String,
-                        default: "medium",
-                    },
+            <mybutton disabled type="primary">Disabled</mybutton>
+
+            <mybutton loading type="primary">Loading</mybutton>
+        </div>
+
+        <div>
+            <mybutton type="primary" size="small">Primary</mybutton>
+
+            <mybutton type="success" size="small">Success</mybutton>
+
+            <mybutton type="warning" size="small">Warning</mybutton>
+
+            <mybutton type="error" size="small">Error</mybutton>
+
+            <mybutton disabled size="small">Disabled</mybutton>
+
+            <mybutton loading size="small">Loading</mybutton>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+
+    <script type="text/javascript">
+        Vue.component("mybutton", {
+            props: {
+                disabled: {
+                    type: Boolean,
+                    default: false,
                 },
 
-                template: `<button @click='recall' :class='type' class='mybutton' :disabled='disabled' :loading='loading' :size='size'><i></i><slot>默认按钮</slot></button>`,
-
-                methods: {
-                    recall: function () {
-                        this.$emit("click");
-                    },
+                loading: {
+                    type: Boolean,
+                    default: false,
                 },
-            });
 
-            var app = new Vue({
-                el: "#app",
-
-                methods: {
-                    clickController: function () {
-                        alert("点击事件！");
-                    },
+                type: {
+                    type: String,
+                    default: "primary",
                 },
-            });
-        </script>
-    </body>
+
+                size: {
+                    type: String,
+                    default: "medium",
+                },
+            },
+
+            template: `<button @click='recall' :class='type' class='mybutton' :disabled='disabled' :loading='loading' :size='size'><i></i><slot>默认按钮</slot></button>`,
+
+            methods: {
+                recall: function () {
+                    this.$emit("click");
+                },
+            },
+        });
+
+        var app = new Vue({
+            el: "#app",
+
+            methods: {
+                clickController: function () {
+                    alert("点击事件！");
+                },
+            },
+        });
+    </script>
+</body>
+
 </html>
