@@ -1,0 +1,30 @@
+defp parse do
+
+  case IO.read(:stdio, :line) do
+
+    :eof -> :ok
+
+    {:error, reason} -> IO.puts "Error: #{reason}"
+
+
+    line ->
+
+      try do
+
+       line
+
+        |> parse_line()
+
+        |> process()
+
+      rescue
+
+        e -> IO.puts("Cannot parse: #{line}. error: #{inspect e}")
+
+      end
+
+parse()
+
+  end
+
+end
