@@ -16,22 +16,25 @@
  ** http://orchistro.tistory.com/206
  **/
 
-inline
-void enable_alignment_check(void) {
+inline void enable_alignment_check(void)
+{
 #if defined(__GNUC__)
-# if defined(__x86_64__)
-  __asm__("pushf\n"
-          "\torl $0x40000, (%%rsp)\n"
-          "\tpopf"
-          : : : "cc");
-# elif defined(__i386__)
-  __asm__("pushf\n"
-          "\torl $0x40000, (%%esp)\n"
-          "\tpopf"
-          : : : "cc");
-# endif
+#if defined(__x86_64__)
+    __asm__("pushf\n"
+            "\torl $0x40000, (%%rsp)\n"
+            "\tpopf"
+            :
+            :
+            : "cc");
+#elif defined(__i386__)
+    __asm__("pushf\n"
+            "\torl $0x40000, (%%esp)\n"
+            "\tpopf"
+            :
+            :
+            : "cc");
+#endif
 #endif
 }
-
 
 #endif

@@ -34,36 +34,39 @@
  ** MAX() for a more complicated example.
  **/
 #ifdef __clang__
-# define ANONYMOUS(RET) (^ RET ANON_PART2
-# define ANON_PART2(...) (__VA_ARGS__) ANON_PART3
-# define ANON_PART3(...) __VA_ARGS__)
+#define ANONYMOUS(RET) (^ RET ANON_PART2
+#define ANON_PART2(...) (__VA_ARGS__) ANON_PART3
+#define ANON_PART3(...) __VA_ARGS__)
 #else
-# define ANONYMOUS(RET) ({ RET __anon_func ANON_PART2
-# define ANON_PART2(...) (__VA_ARGS__) ANON_PART3
-# define ANON_PART3(...) __VA_ARGS__ __anon_func; })
+#define ANONYMOUS(RET) ({ RET __anon_func ANON_PART2
+#define ANON_PART2(...) (__VA_ARGS__) ANON_PART3
+#define ANON_PART3(...)      \
+    __VA_ARGS__ __anon_func; \
+    })
 #endif
 
-#define MAXU(A, B)                              \
-ANONYMOUS(uintmax_t) (uintmax_t a, uintmax_t b) \
-({                                              \
-    if (a < b) return b;                        \
-    else return a;                              \
-})                                              \
-((A), (B))
+#define MAXU(A, B)               \
+    ANONYMOUS(uintmax_t)         \
+    (uintmax_t a, uintmax_t b)({ \
+        if (a < b)               \
+            return b;            \
+        else                     \
+            return a;            \
+    })((A), (B))
 
-#define MAX(A, B)                               \
-/* function header */                           \
-  /* return type */                             \
-ANONYMOUS(__typeof__(1 ? (A) : (B)))            \
- /*and then argument list */                    \
-(__typeof__(A) a, __typeof__(B) b)              \
-/* function body */                             \
-({                                              \
-  if (a < b) return b;                          \
-  else return a;                                \
- })                                             \
-/* function call */                             \
-((A), (B))
+#define MAX(A, B)                                          \
+    /* function header */                                  \
+    /* return type */                                      \
+    ANONYMOUS(__typeof__(1 ? (A) : (B)))                   \
+    /*and then argument list */                            \
+    (__typeof__(A) a, __typeof__(B) b) /* function body */ \
+        ({                                                 \
+            if (a < b)                                     \
+                return b;                                  \
+            else                                           \
+                return a;                                  \
+        }) /* function call */                             \
+        ((A), (B))
 
 /**
  ** Test to see if that even works when such functions are nested.
@@ -71,26 +74,26 @@ ANONYMOUS(__typeof__(1 ? (A) : (B)))            \
 
 typedef void df(unsigned);
 
-df* Df[5] = { 0 };
+df *Df[5] = {0};
 
-void g(unsigned level, unsigned depth) {
-  Df[depth%5] =
-    ANONYMOUS(void) (register unsigned a)
-    ({
-      printf("from level %u, depth %u found in position %u\n",
-             level, depth,
-             MAX(2*a, depth)
-             );
-      return;
-    });
-  if (level)
-    g(level-1, depth+1);
-  else
-    for (unsigned i = 0; i < 5; ++i)
-      if (Df[i]) Df[i](i);
+void g(unsigned level, unsigned depth)
+{
+    Df[depth % 5] =
+        ANONYMOUS(void)(register unsigned a)({
+            printf("from level %u, depth %u found in position %u\n",
+                   level, depth,
+                   MAX(2 * a, depth));
+            return;
+        });
+    if (level)
+        g(level - 1, depth + 1);
+    else
+        for (unsigned i = 0; i < 5; ++i)
+            if (Df[i])
+                Df[i](i);
 }
 
-
-int main(int argc, char* argv[]) {
-  g(argc, 0);
+int main(int argc, char *argv[])
+{
+    g(argc, 0);
 }
