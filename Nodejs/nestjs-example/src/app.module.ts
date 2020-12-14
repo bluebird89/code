@@ -8,4 +8,4 @@ import { CatsController } from './cats/cats.controller';
   controllers: [AppController, CatsController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
