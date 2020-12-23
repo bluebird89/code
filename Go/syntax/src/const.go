@@ -13,9 +13,10 @@ const (          // 通过一个 const 关键字定义多个常量，和 var 类
 )
 const u, v float32 = 0, 3   // u = 0.0, v = 3.0，常量的多重赋值
 const a, b, c = 3, 4, "foo" // a = 3, b = 4, c = "foo", 无类型整型和字符串常量
-const f1 = -12l
+const f1 = -12
 // 可以是在编译期运算的常量表达式
 const mask = 1 << 3
+
 // iota比较特殊，可以被认为是一个可被编译器修改的常量，在每一个const关键字出现时被重置为0，然后在下一个const出现之前，每出现一次iota，其所代表的数字会自动增1
 const (
 	c0 = iota

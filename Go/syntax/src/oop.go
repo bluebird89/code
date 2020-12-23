@@ -1,8 +1,8 @@
 package main
 
 import (
-	animal2 "basic/syntax/animal"
-	"basic/syntax/oop"
+	animal2 "syntax/animal"
+	"syntax/oop"
 	"fmt"
 	//"reflect"
 )

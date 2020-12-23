@@ -15,6 +15,24 @@ func add(a, b int) int {
 	return a + b
 }
 
+// 值传递
+func test1(i, j int) (int, int) {
+	var temp int
+	temp = i
+	i = j
+	j = temp
+	return i, j
+}
+
+// 引用传递
+func test2(i, j *int) (int, int) {
+	var temp int
+	temp = *i
+	*i = *j
+	*j = temp
+	return *i, *j
+}
+
 // 引用传参 多返回值及返回值命名
 func add1(a, b *int) (c int, err error) {
 	if *a < 0 || *b < 0 {
@@ -49,6 +67,7 @@ func myPrintf(args ...interface{}) {
 	}
 }
 
+// 函数作为参数
 func callback(x int, f func(int, int)) {
 	f(x, 2)
 }
@@ -57,6 +76,14 @@ func callback(x int, f func(int, int)) {
 func addfunc(a int) func(b int) int {
 	return func(b int) int {
 		return a + b
+	}
+}
+
+func getSequence() func() int {
+	a := 1
+	return func() int {
+		a++
+		return a
 	}
 }
 
@@ -98,13 +125,17 @@ func main() {
 	j += 2
 	f()
 
-	// 匿名函数作为参数
 	i := 10
 	add1 := func(a, b int) {
 		fmt.Printf("Variable i from main func: %d\n", i)
 		fmt.Printf("The sum of %d and %d is: %d\n", a, b, a+b)
 	}
 	callback(1, add1)
+
+	next := getSequence()
+	fmt.Println(next())
+	fmt.Println(next())
+	fmt.Println(next())
 
 	// 匿名函数作为返回值
 	f1 := addfunc(1)
@@ -119,6 +150,18 @@ func main() {
 	fmt.Printf("The %dth number of fibonacci sequence is %d,It takes %f seconds to calculate the number\n", n1, num1, consume1)
 	// 在同一个包中（即定义在同一个目录下的 Go 文件中），只需直接调用即可
 	// 跨包调用时，只有首字母大写的函数才可以被调用
+
+	var a = 3
+	var b = 4
+	fmt.Println("值传递运行前a=", a, "b=", b)
+	fmt.Println(test1(a, b))
+	fmt.Println("值传递运行后a=", a, "b=", b)
+	fmt.Println("===============================================")
+	i = 1
+	j = 2
+	fmt.Println("引用传递运行前i=", i, "j=", j)
+	test2(&i, &j)
+	fmt.Println("引用传递运行后i=", i, "j=", j)
 }
 
 const MAX = 50

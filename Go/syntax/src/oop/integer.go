@@ -2,6 +2,7 @@ package oop
 
 type Integer int
 
+//方法
 func (a Integer) Equal(i Integer) bool {
 	return a == i
 }

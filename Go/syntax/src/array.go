@@ -32,6 +32,7 @@ func main() {
 	}
 
 	var multi [9][9]string
+	//arr := [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
 	for i := 0; i < 9; i++ {
 		for j := 0; j <= i; j++ {
 			multi[i][j] = fmt.Sprintf("%d x %d = %d ", j+1, i+1, (i+1)*(j+1))

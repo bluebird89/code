@@ -8,27 +8,29 @@ func main() {
 	// 数组可以看作是切片的底层数组，而切片则可以看作是数组某个连续片段的引用
 	// 数组切片底层引用了一个数组，由三个部分构成：指针、长度和容量，指针指向数组起始下标，长度对应切片中元素的个数，容量则是切片起始位置到底层数组结尾的位置，切片长度不能超过容量
 	var slice []string = []string{"a", "b", "c"}
-
 	months := [...]string{"January", "February", "March", "April", "May", "June",
 		"July", "August", "September", "October", "November", "December"}
+
 	q2 := months[3:6]
-	summer := months[5:8]
 	all := months[:]
 	firstHalf := months[:6]
 	secondHaf := months[6:]
 	// 数组切片可以基于另一个数组切片创建
-	// 可以超过所包含的元素个数
+	// 可以超过所包含元素个数
 	q1 := firstHalf[:9]
 
-	fmt.Println(slice, q2, summer, all, firstHalf, secondHaf, q1)
-	fmt.Println(len(secondHaf), cap(firstHalf))
+	fmt.Println(slice, q2, all, firstHalf, secondHaf, q1)
+	fmt.Printf("len=%d cap=%d slice=%v\n", len(firstHalf), cap(firstHalf), firstHalf)
+	fmt.Printf("len=%d cap=%d slice=%v\n", len(secondHaf), cap(secondHaf), secondHaf)
 
+	// 初始元素个数为 5 的整型数组切片
+	//预留 10 个元素的存储空间（容量为10）
 	slice1 := make([]int, 5)
-	// 初始元素个数为 5 的整型数组切片，并预留 10 个元素的存储空间（容量为10）
 	slice2 := make([]int, 5, 10)
 	slice3 := []int{1, 3, 5, 7, 9}
 	fmt.Println(slice1, slice2, len(slice2), cap(slice2), slice3)
 
+	summer := months[5:8]
 	for i, v := range summer {
 		fmt.Println("summer[", i, "] =", v)
 	}
@@ -75,4 +77,27 @@ func main() {
 	slice3 = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	slice37 := slice3[:copy(slice3, slice3[3:])] // 删除开头前三个元素
 	fmt.Println(slice37)
+
+	//这是我们使用range去求一个slice的和。使用数组跟这个很类似
+	nums := []int{2, 3, 4}
+	sum := 0
+	for _, num := range nums {
+		sum += num
+	}
+	fmt.Println("sum:", sum)
+	//在数组上使用range将传入index和值两个变量。上面那个例子我们不需要使用该元素的序号，所以我们使用空白符"_"省略了。有时侯我们确实需要知道它的索引。
+	for i, num := range nums {
+		if num == 3 {
+			fmt.Println("index:", i)
+		}
+	}
+	//range也可以用在map的键值对上。
+	kvs := map[string]string{"a": "apple", "b": "banana"}
+	for k, v := range kvs {
+		fmt.Printf("%s -> %s\n", k, v)
+	}
+	//range也可以用来枚举Unicode字符串。第一个参数是字符的索引，第二个是字符（Unicode的值）本身。
+	for i, c := range "go" {
+		fmt.Println(i, c)
+	}
 }

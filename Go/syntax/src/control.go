@@ -48,7 +48,6 @@ func main() {
 	}
 
 	sum := 0
-
 	for i := 1; i <= 100; i++ {
 		sum += i
 	}
@@ -56,8 +55,7 @@ func main() {
 
 	sum = 0
 	i := 0
-	// 不带循环条件 可以无限循环
-	for i < 100 {
+	for i < 10 {
 		i++
 		sum += i
 	}
