@@ -2,10 +2,11 @@ package main
 
 import "fmt"
 
-const Pi = 3.14
-
 const (
-	Big   = 1 << 100
+	// 将 1 左移 100 位来创建一个非常大的数字
+	// 即这个数的二进制是 1 后面跟着 100 个 0
+	Big = 1 << 100
+	// 再往右移 99 位，即 Small = 1 << 1，或者说 Small = 2
 	Small = Big >> 99
 )
 
@@ -15,15 +16,9 @@ func needFloat(x float64) float64 {
 }
 
 func main() {
-	const World = "世界"
-	fmt.Println("Hello", World)
-	fmt.Println("Hello", Pi, "Day")
-
-	const Truth = true
-	fmt.Println("Go rules?", Truth)
-
-	//  Numeric Constants
+	// fmt.Println(Big, Small)
 	fmt.Println(needInt(Small))
+	// fmt.Println(needInt(Big))
 	fmt.Println(needFloat(Small))
 	fmt.Println(needFloat(Big))
 }
