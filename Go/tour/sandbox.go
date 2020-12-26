@@ -1,5 +1,6 @@
 package main
 
+// go get -u github.com/Go-zh/tour tour
 import (
 	"fmt"
 	"time"
