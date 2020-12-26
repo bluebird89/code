@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: thanos-rule
+  name: thanos-rule
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thanos-rule
+  template:
+    metadata:
+      labels:
+      labels:
+        app: thanos-rule
+    spec:
+      containers:
+      - name: thanos-rule
+        image: improbable/thanos:v0.6.0
+        args:
+        - rule
+        - --web.route-prefix=/rule
+        - --web.external-prefix=/rule
+        - --log.level=debug
+        - --eval-interval=15s
+        - --rule-file=/etc/rules/thanos-rule.yml
+        - --query=dnssrv+thanos-query.default.svc
+        - --alertmanagers.url=dns+http://alertmanager.default
+        ports:
+        - containerPort: 10902
+          name: http
+        volumeMounts:
+          - name: thanos-rule-config
+            mountPath: /etc/rules
+      volumes:
+      - name: thanos-rule-config
+        configMap:
+          name: thanos-rule-config

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pushgateway
+  name: pushgateway
+spec:
+  replicas: 15
+  selector:
+    matchLabels:
+      app: pushgateway
+  template:
+    metadata:
+      labels:
+        app: pushgateway
+    spec:
+      containers:
+      - image: prom/pushgateway:v1.0.0
+        name: pushgateway
+        ports:
+        - containerPort: 9091
+          name: http
+        resources:
+          limits:
+            memory: 1Gi
+          requests:
+            memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: pushgateway
+  name: pushgateway
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 9091
+    targetPort: http
+  selector:
+    app: pushgateway

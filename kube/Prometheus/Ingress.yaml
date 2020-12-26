@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: pushgateway-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/upstream-hash-by: "$request_uri"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - host: $(DOMAIN)
+    http:
+      paths:
+      - backend:
+          serviceName: pushgateway
+          servicePort: 9091
+        path: /metrics
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prometheus-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: $(DOMAIN)
+    http:
+      paths:
+      - backend:
+          serviceName: thanos-query
+          servicePort: 10901
+        path: /
+      - backend:
+          serviceName: alertmanager
+          servicePort: 9093
+        path: /alertmanager
+      - backend:
+          serviceName: thanos-rule
+          servicePort: 10092
+        path: /rule
+      - backend:
+          serviceName: grafana
+          servicePort: 3000
+        path: /grafana
