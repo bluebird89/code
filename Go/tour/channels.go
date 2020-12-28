@@ -62,7 +62,7 @@ func main() {
 		fmt.Println(i)
 	}
 
-	// Select
+	// Select:使一个 Go 程可以等待多个通信操作。select 会阻塞到某个分支可以继续执行为止，这时就会执行该分支。当多个分支都准备好时会随机选择一个执行。
 	c = make(chan int)
 	quit := make(chan int)
 	go func() {

@@ -6,8 +6,8 @@ import (
 	"time"
 )
 
-//保证每次只有一个 Go 程能够访问一个共享的变量
-//*互斥（mutual*exclusion）* ，通常使用 *互斥锁（Mutex）* 这一数据结构来提供这种机制
+// 保证每次只有一个 Go 程能够访问一个共享的变量
+//*互斥（mutual*exclusion）* :通常使用 *互斥锁（Mutex）* 这一数据结构来提供这种机制
 //通过在代码前调用 Lock 方法，在代码后调用 Unlock 方法来保证一段代码的互斥执行
 // SafeCounter 的并发使用是安全的。
 type SafeCounter1 struct {
