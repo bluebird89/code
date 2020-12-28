@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+)
 
 func main() {
 	// 与数组最大的不同在于，切片的类型字面量中只有元素的类型，没有长度
@@ -78,7 +81,7 @@ func main() {
 	slice37 := slice3[:copy(slice3, slice3[3:])] // 删除开头前三个元素
 	fmt.Println(slice37)
 
-	//这是我们使用range去求一个slice的和。使用数组跟这个很类似
+	// 使用range去求一个slice的和。使用数组跟这个很类似
 	nums := []int{2, 3, 4}
 	sum := 0
 	for _, num := range nums {
@@ -91,13 +94,26 @@ func main() {
 			fmt.Println("index:", i)
 		}
 	}
+
 	//range也可以用在map的键值对上。
 	kvs := map[string]string{"a": "apple", "b": "banana"}
 	for k, v := range kvs {
 		fmt.Printf("%s -> %s\n", k, v)
 	}
+
 	//range也可以用来枚举Unicode字符串。第一个参数是字符的索引，第二个是字符（Unicode的值）本身。
 	for i, c := range "go" {
 		fmt.Println(i, c)
 	}
+
+	path := []byte("AAAA/BBBBBBBBB")
+	sepIndex := bytes.IndexByte(path, "/")
+	dir1 := path[:sepIndex:sepIndex]
+	dir2 := path[sepIndex+1:]
+	fmt.Println("dir1 =>", string(dir1)) //prints: dir1 => AAAA
+	fmt.Println("dir2 =>", string(dir2)) //prints: dir2 => BBBBBBBBB
+
+	dir1 = append(dir1, "suffix"...)
+	fmt.Println("dir1 =>", string(dir1)) //prints: dir1 => AAAAsuffix
+	fmt.Println("dir2 =>", string(dir2)) //prints: dir2 => uffixBBBB
 }

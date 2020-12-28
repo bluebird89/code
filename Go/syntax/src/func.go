@@ -162,6 +162,12 @@ func main() {
 	fmt.Println("引用传递运行前i=", i, "j=", j)
 	test2(&i, &j)
 	fmt.Println("引用传递运行后i=", i, "j=", j)
+
+	// 函数不定参数
+	sum1(1, 2)
+	sum1(1, 2, 3)
+	nums := []int{1, 2, 3, 4}
+	sum1(nums...)
 }
 
 const MAX = 50
@@ -184,4 +190,13 @@ func fibonacci(n int) int {
 	num := fibonacci(n-1) + fibonacci(n-2)
 	fibs[index] = num
 	return num
+}
+
+func sum1(nums ...int) {
+	fmt.Print(nums, " ") //输出如 [1, 2, 3] 之类的数组
+	total := 0
+	for _, num := range nums { //要的是值而不是下标
+		total += num
+	}
+	fmt.Println(total)
 }
