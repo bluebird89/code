@@ -1,31 +1,37 @@
 <template>
-  <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade"
+       id="exampleModal"
+       tabindex="-1"
+       aria-labelledby="exampleModalLabel"
+       aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
+          <h5 class="modal-title"
+              id="exampleModalLabel">
             <slot name="header"></slot>
           </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
           <ul>
-            <li v-for="language in languages" v-bind:key="language.id">
+            <li v-for="language in languages"
+                v-bind:key="language.id">
               <slot v-bind:language="language">{{ language.name }}</slot>
             </li>
           </ul>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal">Close</button>
+          <button type="button"
+                  class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -34,9 +40,9 @@
 
 <script>
 export default {
-  name: "ModalExample",
-  props: ["languages"],
-};
+  name: 'ModalExample',
+  props: ['languages'],
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -1,28 +1,7 @@
 # my-app
 
-* npm start 前端处于实时刷线模式
+* npm start 前端实时刷线模式
 * docker:以当时 npm run build 生成的镜像文件打包，是个静态资源
-
-## Project setup
-```
-pnpm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-pnpm run serve
-```
-
-### Compiles and minifies for production
-```
-pnpm run build
-```
-
-### Lints and fixes files
-```
-pnpm run lint
-```
 
 ## 运行
 
@@ -32,7 +11,7 @@ npm install
 # 构建production
 npm run build
 #本地运行
-npm start
+npm run serve
 
 docker build -t bluebird89/vue_nginx .
 # 运行docker
