@@ -19,7 +19,7 @@ colors = {
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
 df = pd.DataFrame({
-"Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
+    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
     "Amount": [4, 1, 2, 2, 4, 5],
     "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
 })
@@ -31,7 +31,9 @@ fig.update_layout(
     font_color=colors['text']
 )
 
-df = pd.read_csv('https://gist.githubusercontent.com/chriddyp/c78bf172206ce24f77d6363a2d754b59/raw/c353e8ef842413cae56ae3920b8fd78468aa4cb2/usa-agricultural-exports-2011.csv')
+df = pd.read_csv(
+    'https://gist.githubusercontent.com/chriddyp/c78bf172206ce24f77d6363a2d754b59/raw/c353e8ef842413cae56ae3920b8fd78468aa4cb2/usa-agricultural-exports-2011.csv')
+
 
 def generate_table(dataframe, max_rows=10):
     return html.Table([
@@ -45,11 +47,13 @@ def generate_table(dataframe, max_rows=10):
         ])
     ])
 
-df1 = pd.read_csv('https://gist.githubusercontent.com/chriddyp/5d1ea79569ed194d432e56108a04d188/raw/a9f9e8076b837d541398e999dcbac2b2826a81f8/gdp-life-exp-2007.csv')
+
+df1 = pd.read_csv(
+    'https://gist.githubusercontent.com/chriddyp/5d1ea79569ed194d432e56108a04d188/raw/a9f9e8076b837d541398e999dcbac2b2826a81f8/gdp-life-exp-2007.csv')
 
 fig1 = px.scatter(df1, x="gdp per capita", y="life expectancy",
-                 size="population", color="continent", hover_name="country",
-                 log_x=True, size_max=60)
+                  size="population", color="continent", hover_name="country",
+                  log_x=True, size_max=60)
 
 markdown_text = '''
 ### Dash and Markdown
@@ -86,7 +90,7 @@ app.layout = html.Div(children=[
         id='life-exp-vs-gdp',
         figure=fig1
     ),
-     dcc.Markdown(children=markdown_text)
+    dcc.Markdown(children=markdown_text)
 ])
 
 if __name__ == '__main__':

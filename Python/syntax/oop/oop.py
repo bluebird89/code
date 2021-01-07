@@ -58,7 +58,7 @@ class Student(object):
     def __call__(self):
         print('My name is %s.' % self.name)
 
-        
+
 bart = Student('Bart Simpson', 59, 89)
 lisa = Student('Lisa Simpson', 87, 98)
 bart.print_score()

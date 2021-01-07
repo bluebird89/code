@@ -12,7 +12,6 @@ def read_file(filename):
     # 获得文件绝对路径
     filepath = path.join(path.dirname(__file__), filename)
 
-
     # 判定文件是否存在
     assert_msg(path.exists(filepath), "文件不存在")
 

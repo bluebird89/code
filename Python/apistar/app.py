@@ -1,9 +1,11 @@
 from apistar import App, Route
 
+
 def welcome(name=None):
     if name is None:
         return {'message': 'Welcome to apistar!'}
     return {'message': 'Welcome to apistar, %s!' % name}
+
 
 routes = [
     Route('/', method='GET', handler=welcome),

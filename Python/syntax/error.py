@@ -20,11 +20,14 @@ print('END')
 class FooError(ValueError):
     pass
 
+
 def foo(s):
     return 10 / int(s)
 
+
 def bar(s):
     return foo(s) * 2
+
 
 def main():
     try:

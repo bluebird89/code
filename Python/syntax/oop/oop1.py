@@ -52,14 +52,18 @@ class Flyable(object):
 class Dog(Mammal, Runnable):
     pass
 
+
 b = Animal()
 c = Dog()
 isinstance(b, Animal)
 isinstance(c, Animal)
 
+
 def run_twice(animal):
     animal.run()
     animal.run()
+
+
 run_twice(c)
 
 print(type(c))

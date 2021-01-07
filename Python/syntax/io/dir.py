@@ -25,6 +25,6 @@ print(os.path.splitext(realPath))
 os.rename('tests.txt', 'tests.py')
 os.remove('tests.py')
 
-print([x for x in os.listdir('../../Syntax/') if os.path.isdir(x)])
+print([x for x in os.listdir('../') if os.path.isdir(x)])
 print([x for x in os.listdir('') if os.path.isfile(
     x) and os.path.splitext(x)[1] == '.py'])

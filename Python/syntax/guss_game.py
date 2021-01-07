@@ -1,5 +1,6 @@
 from random import randint
 
+
 def play():
     random_int = randint(0, 100)
 
@@ -15,6 +16,7 @@ def play():
         if user_guess > random_int:
             print("Your number is greater than the number we guessed")
             continue
+
 
 if __name__ == '__main__':
     play()

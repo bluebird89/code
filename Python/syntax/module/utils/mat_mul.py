@@ -1,4 +1,4 @@
-from basic.module.proto.mat import Matrix
+from syntax.module.proto.mat import Matrix
 
 def mat_mul(matrix_1: Matrix, matrix_2: Matrix):
     assert matrix_1.m == matrix_2.n

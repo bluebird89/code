@@ -1,7 +1,7 @@
 import unittest
 
 # 编写子类继承unittest.TestCase
-from basic.data_type.sort import sort
+from syntax.data_type.sort import sort
 
 
 class TestSort(unittest.TestCase):

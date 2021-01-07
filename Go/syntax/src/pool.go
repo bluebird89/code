@@ -24,12 +24,12 @@ func main() {
 
 	var wg sync.WaitGroup
 	wg.Add(1)
-	go test_put(pool, wg.Done)
+	go testPut(pool, wg.Done)
 	wg.Wait()
 	fmt.Println(pool.Get())
 }
 
-func test_put(pool *sync.Pool, deferFunc func()) {
+func testPut(pool *sync.Pool, deferFunc func()) {
 	defer func() {
 		deferFunc()
 	}()
