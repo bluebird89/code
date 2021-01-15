@@ -21,3 +21,4 @@ node_modules
 tool/parcel/dist/
 tool/parcel/.cache/
 
+Docker/mysql/test_db/

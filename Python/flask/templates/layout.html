@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>{% block title %}{% endblock %}</title>
-   <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}"/>
-   <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-theme.css') }}"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-theme.css') }}"/>
 
 </head>
 <body>
 
 <div class="container body-content">
-   {% block body %}{% endblock %}
+    {% block body %}{% endblock %}
 </div>
 
 <div class="container footer">
-   <hr>
-   <p>这是页脚</p>
+    <hr>
+    <p>这是页脚</p>
 </div>
 
 <script src="{{ url_for('static',filename='js/jquery.js') }}"></script>
