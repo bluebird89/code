@@ -1,82 +1,88 @@
 <?php
 
-function topologicalSortKahnV2(array $matrix): array {
-	$sorted = [];
-	$nodes = [];
+function topologicalSortKahnV2(array $matrix): array
+{
+    $sorted = [];
+    $nodes = [];
 
-	$size = count($matrix);
+    $size = count($matrix);
 
-	// finding all nodes where indegree = 0
-	for ($i = 0; $i < $size; $i++) {
-		$sum = 0;
-		for ($j = 0; $j < $size; $j++)
-			$sum += $matrix[$j][$i];
+    // finding all nodes where indegree = 0
+    for ($i = 0; $i < $size; $i++) {
+        $sum = 0;
+        for ($j = 0; $j < $size; $j++) {
+            $sum += $matrix[$j][$i];
+        }
 
-		if ($sum == 0)
-			array_push($nodes, $i);
-	}
+        if ($sum == 0) {
+            array_push($nodes, $i);
+        }
+    }
 
-	while ($nodes) {
+    while ($nodes) {
 
-		$node = array_shift($nodes);
-		array_push($sorted, $node);
+        $node = array_shift($nodes);
+        array_push($sorted, $node);
 
-		foreach ($matrix[$node] as $index => $hasEdge) {
-			if ($hasEdge) {
-				$matrix[$node][$index] = 0;
+        foreach ($matrix[$node] as $index => $hasEdge) {
+            if ($hasEdge) {
+                $matrix[$node][$index] = 0;
 
-				$sum = 0;
-				for ($i = 0; $i < $size; $i++) {
-					$sum += $matrix[$i][$index];
-				}
+                $sum = 0;
+                for ($i = 0; $i < $size; $i++) {
+                    $sum += $matrix[$i][$index];
+                }
 
-				if (!$sum) {
-					array_push($nodes, $index);
-				}
-			}
-		}
-	}
+                if (!$sum) {
+                    array_push($nodes, $index);
+                }
+            }
+        }
+    }
 
-	return $sorted;
+    return $sorted;
 }
 
-function topologicalSort(array $matrix): SplQueue {
-	$order = new SplQueue;
-	$queue = new SplQueue;
-	$size = count($matrix);
-	$incoming = array_fill(0, $size, 0);
+function topologicalSort(array $matrix): SplQueue
+{
+    $order = new SplQueue;
+    $queue = new SplQueue;
+    $size = count($matrix);
+    $incoming = array_fill(0, $size, 0);
 
 
-	for ($i = 0; $i < $size; $i++) {
-		for ($j = 0; $j < $size; $j++) {
-			if ($matrix[$j][$i]) {
-				$incoming[$i] ++;
-			}
-		}
-		if ($incoming[$i] == 0) {
-			$queue->enqueue($i);
-		}
-	}
+    for ($i = 0; $i < $size; $i++) {
+        for ($j = 0; $j < $size; $j++) {
+            if ($matrix[$j][$i]) {
+                $incoming[$i]++;
+            }
+        }
+        if ($incoming[$i] == 0) {
+            $queue->enqueue($i);
+        }
+    }
 
-	while (!$queue->isEmpty()) {
-		$node = $queue->dequeue();
+    while (!$queue->isEmpty()) {
+        $node = $queue->dequeue();
 
-		for ($i = 0; $i < $size; $i++) {
-			if ($matrix[$node][$i] == 1) {
-				$matrix[$node][$i] = 0;
-				$incoming[$i] --;
-				if ($incoming[$i] == 0) {
-					$queue->enqueue($i);
-				}
-			}
-		}
-		$order->enqueue($node);
-	}
+        for ($i = 0; $i < $size; $i++) {
+            if ($matrix[$node][$i] == 1) {
+                $matrix[$node][$i] = 0;
+                $incoming[$i]--;
+                if ($incoming[$i] == 0) {
+                    $queue->enqueue($i);
+                }
+            }
+        }
+        $order->enqueue($node);
+    }
 
-	if ($order->count() != $size) // cycle detected
-		return new SplQueue;
+    if ($order->count() != $size) // cycle detected
+    {
+        return new SplQueue;
+    }
 
-	return $order;
+    return $order;
 }
 
 /*
@@ -106,17 +112,17 @@ function topologicalSort(array $matrix): SplQueue {
  */
 
 $graph = [
-	[0, 0, 0, 0, 1],
-	[1, 0, 0, 1, 0],
-	[0, 1, 0, 1, 0],
-	[0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1],
+    [1, 0, 0, 1, 0],
+    [0, 1, 0, 1, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
 ];
 
 $sorted = topologicalSort($graph);
 
 while (!$sorted->isEmpty()) {
-	echo $sorted->dequeue() . "\t";
+    echo $sorted->dequeue()."\t";
 }
 
 echo implode(',', topologicalSortKahnV2($graph));

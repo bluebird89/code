@@ -8,46 +8,46 @@
 
 function expressionChecker(string $expression): bool
 {
-	$valid = true;
-	$stack = new SplStack();
+    $valid = true;
+    $stack = new SplStack();
 
-	for ($i = 0; $i < strlen($expression); $i++) {
-		$char = substr($expression, $i, 1);
+    for ($i = 0; $i < strlen($expression); $i++) {
+        $char = substr($expression, $i, 1);
 
-		switch ($char) {
-			case '(':
-			case '{':
-			case '[':
-				$stack->push($char);
-				break;
+        switch ($char) {
+            case '(':
+            case '{':
+            case '[':
+                $stack->push($char);
+                break;
 
-			case ')':
-			case '}':
-			case ']':
-				if ($stack->isEmpty()) {
-					$valid = false;
-				} else {
-					$last = $stack->pop();
-					if (($char == ")" && $last != "(")
-						|| ($char == "}" && $last != "{")
-						|| ($char == "]" && $last != "[")) {
+            case ')':
+            case '}':
+            case ']':
+                if ($stack->isEmpty()) {
+                    $valid = false;
+                } else {
+                    $last = $stack->pop();
+                    if (($char == ")" && $last != "(")
+                        || ($char == "}" && $last != "{")
+                        || ($char == "]" && $last != "[")) {
 
-						$valid = false;
-					}
-				}
-				break;
-		}
+                        $valid = false;
+                    }
+                }
+                break;
+        }
 
-		if (!$valid) {
-			break;
-		}
-	}
+        if (!$valid) {
+            break;
+        }
+    }
 
-	if (!$stack->isEmpty()) {
-		$valid = false;
-	}
+    if (!$stack->isEmpty()) {
+        $valid = false;
+    }
 
-	return $valid;
+    return $valid;
 }
 
 $expressions = [];
@@ -56,11 +56,11 @@ $expressions[] = "5 * 8 * 9 / ( 3 * 2 ) )";
 $expressions[] = "[{ (2 * 7) + ( 15 - 3) ]";
 
 foreach ($expressions as $expression) {
-	$valid = expressionChecker($expression);
+    $valid = expressionChecker($expression);
 
-	if ($valid) {
-		echo "Expression is valid \n";
-	} else {
-		echo "Expression is not valid \n";
-	}
+    if ($valid) {
+        echo "Expression is valid \n";
+    } else {
+        echo "Expression is not valid \n";
+    }
 }

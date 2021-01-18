@@ -9,7 +9,8 @@ function fact_0(int $n): int
 
     return $n * fact_0($n - 1);
 }
-echo fact_0(10) . PHP_EOL;
+
+echo fact_0(10).PHP_EOL;
 
 // 自底向上
 function fact_1(int $n): int
@@ -23,7 +24,8 @@ function fact_1(int $n): int
 
     return $result;
 }
-echo fact_1(10). PHP_EOL;
+
+echo fact_1(10).PHP_EOL;
 
 // 查表法 使用数组存储计算结果中的每一位（由低到高位），通过相乘进位的方式依次计算每一位的结果
 // 适用于高精度的大数阶乘场合，缺点就是对于小数阶乘而言，计算过程复杂且速度慢
@@ -51,6 +53,7 @@ function fact_2(int $n): array
 
     return $result;
 }
+
 var_dump(fact_2(10));
 
 // BCMath 扩展方法
@@ -65,16 +68,17 @@ function fact_3(int $n): string
 
     return $result;
 }
-echo fact_3(10) . PHP_EOL;
+
+echo fact_3(10).PHP_EOL;
 
 function fact_4(int $n): string
 {
     $middleSquare = pow(floor($n / 2), 2);
     $result = $n & 1 == 1 ? 2 * $middleSquare * $n : 2 * $middleSquare;
-    $result = (string)$result;
+    $result = (string) $result;
     for ($num = 1; $num < $n - 2; $num = $num + 2) {
         $middleSquare = $middleSquare - $num;
-        $result = bcmul($result, (string)$middleSquare);
+        $result = bcmul($result, (string) $middleSquare);
     }
 
     return $result;

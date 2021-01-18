@@ -10,71 +10,71 @@
 interface Queue
 {
 
-	public function enqueue(string $item);
+    public function enqueue(string $item);
 
-	public function dequeue();
+    public function dequeue();
 
-	public function peek();
+    public function peek();
 
-	public function isEmpty();
+    public function isEmpty();
 }
 
 class AgentQueue implements Queue
 {
 
-	private $limit;
-	private $queue;
+    private $limit;
+    private $queue;
 
-	public function __construct(int $limit = 20)
-	{
-		$this->limit = $limit;
-		$this->queue = [];
-	}
+    public function __construct(int $limit = 20)
+    {
+        $this->limit = $limit;
+        $this->queue = [];
+    }
 
-	public function dequeue(): string
-	{
+    public function dequeue(): string
+    {
 
-		if ($this->isEmpty()) {
-			throw new UnderflowException('Queue is empty');
-		} else {
-			return array_shift($this->queue);
-		}
-	}
+        if ($this->isEmpty()) {
+            throw new UnderflowException('Queue is empty');
+        } else {
+            return array_shift($this->queue);
+        }
+    }
 
-	public function enqueue(string $newItem)
-	{
+    public function enqueue(string $newItem)
+    {
 
-		if (count($this->queue) < $this->limit) {
-			array_push($this->queue, $newItem);
-		} else {
-			throw new OverflowException('Queue is full');
-		}
-	}
+        if (count($this->queue) < $this->limit) {
+            array_push($this->queue, $newItem);
+        } else {
+            throw new OverflowException('Queue is full');
+        }
+    }
 
-	public function peek(): string
-	{
-		return current($this->queue);
-	}
+    public function peek(): string
+    {
+        return current($this->queue);
+    }
 
-	public function isEmpty(): bool
-	{
-		return empty($this->queue);
-	}
+    public function isEmpty(): bool
+    {
+        return empty($this->queue);
+    }
 
 }
 
 try {
-	$agents = new AgentQueue(10);
-	$agents->enqueue("Fred");
-	$agents->enqueue("John");
-	$agents->enqueue("Keith");
-	$agents->enqueue("Adiyan");
-	$agents->enqueue("Mikhael");
-	echo $agents->dequeue()."\n";
-	echo $agents->dequeue()."\n";
-	echo $agents->peek()."\n";
+    $agents = new AgentQueue(10);
+    $agents->enqueue("Fred");
+    $agents->enqueue("John");
+    $agents->enqueue("Keith");
+    $agents->enqueue("Adiyan");
+    $agents->enqueue("Mikhael");
+    echo $agents->dequeue()."\n";
+    echo $agents->dequeue()."\n";
+    echo $agents->peek()."\n";
 } catch (Exception $e) {
-	echo $e->getMessage();
+    echo $e->getMessage();
 }
 
 $agents = new SplQueue();

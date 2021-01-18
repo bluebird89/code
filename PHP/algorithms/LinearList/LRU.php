@@ -1,62 +1,62 @@
 <?php
 
 
-namespace Algorithms\DataStructure;
+namespace Algorithms\LinearList;
 
 class ListNode
 {
-	public $key = null;
-	public $value = null;
-	public ListNode $next;
+    public $key = null;
+    public $value = null;
+    public ListNode $next;
 
-	public function __construct($key = null)
-	{
-		$this->key = $key;
-	}
+    public function __construct($key = null)
+    {
+        $this->key = $key;
+    }
 }
 
 class LRU
 {
 
-	public $maxSize;
-	public $size = 0;
-	public $_firstNode;
+    public $maxSize;
+    public $size = 0;
+    public $_firstNode;
 
-	public function __construct($maxSize)
-	{
-		$this->maxSize = $maxSize;
-	}
+    public function __construct($maxSize)
+    {
+        $this->maxSize = $maxSize;
+    }
 
-	public function set($key, $value)
-	{
-		$newNode = new ListNode($key);
-		$newNode->value = $value;
+    public function set($key, $value)
+    {
+        $newNode = new ListNode($key);
+        $newNode->value = $value;
 
-		if ($this->_firstNode === null) {
-			$this->_firstNode = &$newNode;
-		} else {
-			$currentNode = $this->_firstNode;
-			while (isset($currentNode->next)) {
-				$currentNode = $currentNode->next;
-			}
-			$currentNode->next = $newNode;
-		}
-		$this->size++;
+        if ($this->_firstNode === null) {
+            $this->_firstNode = &$newNode;
+        } else {
+            $currentNode = $this->_firstNode;
+            while (isset($currentNode->next)) {
+                $currentNode = $currentNode->next;
+            }
+            $currentNode->next = $newNode;
+        }
+        $this->size++;
 
-		return true;
-	}
+        return true;
+    }
 
-	function get($key)
-	{
-		$node = $this->_firstNode;
-		while ($node = $node->next) {
-			if ($node->key == $key) {
-				return $node->value;
-			}
-		}
+    function get($key)
+    {
+        $node = $this->_firstNode;
+        while ($node = $node->next) {
+            if ($node->key == $key) {
+                return $node->value;
+            }
+        }
 
-		return null;
-	}
+        return null;
+    }
 }
 
 $ins = new LRU(5);

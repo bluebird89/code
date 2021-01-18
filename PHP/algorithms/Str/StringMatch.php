@@ -8,7 +8,7 @@ class StringMatch
     public static function BF($main, $pattern)
     {
         $m = 0;
-        for ($i =0; $i < count($main)-count($pattern); $i++) {
+        for ($i = 0; $i < count($main) - count($pattern); $i++) {
             for ($j = 0, $jMax = count($pattern); $j < $jMax; $j++) {
                 if ($main[$i] != $pattern[$j]) {
                     break;
@@ -18,7 +18,7 @@ class StringMatch
             }
         }
         if ($m == count($pattern)) {
-            return  true;
+            return true;
         }
         return false;
     }
@@ -48,7 +48,7 @@ class StringMatch
 
     public function generateNexts(string $matchingStr): array
     {
-        for ($i=0, $iMax = strlen($matchingStr); $i < $iMax; $i++) {
+        for ($i = 0, $iMax = strlen($matchingStr); $i < $iMax; $i++) {
             $substring = substr($matchingStr, 0, $i);
             $next[$i] = self::getNext($substring);
         }
@@ -62,17 +62,17 @@ class StringMatch
     {
         $prefix = [];
         $suffix = [];
-        for ($i=1; $i <= strlen($subString) - 1; $i++) {
+        for ($i = 1; $i <= strlen($subString) - 1; $i++) {
             $prefix[] = substr($subString, 0, $i);
         }
 
-        for ($i=strlen($subString) - 1; $i > 0; $i--) {
+        for ($i = strlen($subString) - 1; $i > 0; $i--) {
             $suffix[] = substr($subString, -$i);
         }
 
         $suffix = array_reverse($suffix);
         $max = 0;
-        for ($i=0; $i < strlen($subString) - 2; $i++) {
+        for ($i = 0; $i < strlen($subString) - 2; $i++) {
             if ($prefix[$i] == $suffix[$i] && $i >= $max) {
                 $max = $i + 1;
             }

@@ -9,13 +9,14 @@ class Recursive
         if ($n === 1) {
             return 1;
         }
-        return $n * self::factorial($n -1);
+        return $n * self::factorial($n - 1);
     }
 
     # 一只青蛙可以一次跳 1 级台阶或一次跳 2 级台阶,例如:跳上第 1 级台阶只有一种跳法：直接跳 1 级,跳上第 2 级台阶 有两种跳法：每次跳 1 级，跳两次；或者一次跳 2 级
     # 问要跳上第 n 级台阶有多少种跳法？
     # 自上而下
-    public $count =0;
+    public $count = 0;
+
     public function step(int $floors)
     {
         if ($floors === 1 || $floors === 2) {
@@ -27,6 +28,7 @@ class Recursive
     }
 
     public static $middle = [];
+
     public function step1(int $floors)
     {
         if (isset(self::$middle[$floors]['value'])) {
@@ -35,7 +37,7 @@ class Recursive
         }
 
         if ($floors === 1 || $floors === 2) {
-            self::$middle[$floors] = ['value'=> $floors, 'count' => 1];
+            self::$middle[$floors] = ['value' => $floors, 'count' => 1];
             return $floors;
         }
 
@@ -56,7 +58,7 @@ class Recursive
         $pre = 1;
         $next = 2;
 
-        for ($i = 3; $i < $floors + 1; $i ++) {
+        for ($i = 3; $i < $floors + 1; $i++) {
             $result = $pre + $next;
             $pre = $next;
             $next = $result;
@@ -80,12 +82,12 @@ class Recursive
 }
 
 $instance = new Recursive();
-echo $instance->factorial(5). PHP_EOL;
-echo $instance->step(6). '_'. $instance->count .  PHP_EOL;
-echo $instance->step1(6) .  PHP_EOL;
-echo $instance->step2(6) .  PHP_EOL;
+echo $instance->factorial(5).PHP_EOL;
+echo $instance->step(6).'_'.$instance->count.PHP_EOL;
+echo $instance->step1(6).PHP_EOL;
+echo $instance->step2(6).PHP_EOL;
 
 $fibs = $instance->fib(9);
 foreach ($fibs as $fib) {
-    echo " " . $fib;
+    echo " ".$fib;
 }

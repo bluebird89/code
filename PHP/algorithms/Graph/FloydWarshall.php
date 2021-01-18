@@ -3,9 +3,9 @@
 $totalVertices = 5;
 $graph = [];
 for ($i = 0; $i < $totalVertices; $i++) {
-	for ($j = 0; $j < $totalVertices; $j++) {
-		$graph[$i][$j] = $i == $j ? 0 : PHP_INT_MAX;
-	}
+    for ($j = 0; $j < $totalVertices; $j++) {
+        $graph[$i][$j] = $i == $j ? 0 : PHP_INT_MAX;
+    }
 }
 
 $graph[0][1] = $graph[1][0] = 10;
@@ -17,19 +17,19 @@ $graph[3][4] = $graph[4][3] = 20;
 
 function floydWarshall(array $graph): array
 {
-	$dist = [];
-	$dist = $graph;
-	$size = count($dist);
+    $dist = [];
+    $dist = $graph;
+    $size = count($dist);
 
-	for ($k = 0; $k < $size; $k++) {
-		for ($i = 0; $i < $size; $i++) {
-			for ($j = 0; $j < $size; $j++) {
-				$dist[$i][$j] = min($dist[$i][$j], $dist[$i][$k] + $dist[$k][$j]);
-			}
-		}
-	}
+    for ($k = 0; $k < $size; $k++) {
+        for ($i = 0; $i < $size; $i++) {
+            for ($j = 0; $j < $size; $j++) {
+                $dist[$i][$j] = min($dist[$i][$j], $dist[$i][$k] + $dist[$k][$j]);
+            }
+        }
+    }
 
-	return $dist;
+    return $dist;
 }
 
 $distance = floydWarshall($graph);

@@ -10,17 +10,17 @@
 function treeTraverse(array &$tree, int $index = 0, int $level = 0, &$outputStr = ""): ?bool
 {
 
-	if (isset($tree[$index])) {
-		$outputStr .= str_repeat("-", $level);
-		$outputStr .= $tree[$index]."\n";
+    if (isset($tree[$index])) {
+        $outputStr .= str_repeat("-", $level);
+        $outputStr .= $tree[$index]."\n";
 
-		treeTraverse($tree, 2 * $index + 1, $level + 1, $outputStr);
-		treeTraverse($tree, 2 * ($index + 1), $level + 1, $outputStr);
-	} else {
-		return false;
-	}
+        treeTraverse($tree, 2 * $index + 1, $level + 1, $outputStr);
+        treeTraverse($tree, 2 * ($index + 1), $level + 1, $outputStr);
+    } else {
+        return false;
+    }
 
-	return null;
+    return null;
 }
 
 

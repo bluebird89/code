@@ -3,10 +3,10 @@
 class MyPQ extends SplPriorityQueue
 {
 
-	public function compare($priority1, $priority2)
-	{
-		return $priority1 <=> $priority2;
-	}
+    public function compare($priority1, $priority2)
+    {
+        return $priority1 <=> $priority2;
+    }
 
 }
 
@@ -25,7 +25,7 @@ $agents->setExtractFlags(MyPQ::EXTR_BOTH);
 $agents->top();
 
 while ($agents->valid()) {
-	$current = $agents->current();
-	echo $current['data']."\n";
-	$agents->next();
+    $current = $agents->current();
+    echo $current['data']."\n";
+    $agents->next();
 }

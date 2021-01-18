@@ -4,11 +4,11 @@ namespace Algorithms\LinearList;
 
 class ListNode
 {
-	public $data = null;
-	public $next = null;
+    public $data = null;
+    public $next = null;
 
-	public function __construct(string $data = null)
-	{
-		$this->data = $data;
-	}
+    public function __construct(string $data = null)
+    {
+        $this->data = $data;
+    }
 }

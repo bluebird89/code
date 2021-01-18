@@ -7,12 +7,12 @@ $matchScore = -1;
 $matchedStr = '';
 
 foreach ($fruites as $fruit) {
-	$tmpScore = levenshtein($inputStr, $fruit);
+    $tmpScore = levenshtein($inputStr, $fruit);
 
-	if ($tmpScore == 0 || ($matchScore < 0 || $matchScore > $tmpScore)) {
-		$matchScore = $tmpScore;
-		$matchedStr = $fruit;
-	}
+    if ($tmpScore == 0 || ($matchScore < 0 || $matchScore > $tmpScore)) {
+        $matchScore = $tmpScore;
+        $matchedStr = $fruit;
+    }
 }
 
 echo $matchScore == 0 ? 'Exact match found : '.$matchedStr : 'Did you mean: '.$matchedStr.'?\n';
@@ -58,6 +58,6 @@ echo "Natural Sorting: ".implode(",", $arr);
 $data = "hello";
 
 foreach (hash_algos() as $v) {
-	$r = hash($v, $data, false);
-	printf("%-12s %3d %s\n", $v, strlen($r), $r);
+    $r = hash($v, $data, false);
+    printf("%-12s %3d %s\n", $v, strlen($r), $r);
 }

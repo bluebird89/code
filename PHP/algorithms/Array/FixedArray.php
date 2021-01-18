@@ -3,7 +3,7 @@
 $startMemory = memory_get_usage();
 $array = new SplFixedArray(100);
 for ($i = 0; $i < 100; $i++) {
-	$array[$i] = new SplFixedArray(100);
+    $array[$i] = new SplFixedArray(100);
 }
 echo memory_get_usage() - $startMemory, ' bytes';
 
@@ -18,7 +18,7 @@ $startTime = microtime();
 $startMemory = memory_get_usage();
 $array = new SplFixedArray($items);
 for ($i = 0; $i < $items; $i++) {
-	$array[$i] = $i;
+    $array[$i] = $i;
 }
 echo array_filter($array);
 
@@ -42,7 +42,7 @@ print_r($splArray);
 $items = 5;
 $array = new SplFixedArray($items);
 for ($i = 0; $i < $items; $i++) {
-	$array[$i] = $i * 10;
+    $array[$i] = $i * 10;
 }
 
 $newArray = $array->toArray();
@@ -52,7 +52,7 @@ print_r($newArray);
 $items = 5;
 $array = new SplFixedArray($items);
 for ($i = 0; $i < $items; $i++) {
-	$array[$i] = $i * 10;
+    $array[$i] = $i * 10;
 }
 
 $array->setSize(10);
@@ -66,32 +66,32 @@ $array['Portugal'] = "Position 6";
 $array['Fifa_World_Cup'] = "2018 Russia";
 
 $ronaldo = [
-	"name" => "Ronaldo",
-	"country" => "Portugal",
-	"age" => 31,
-	"currentTeam" => "Real Madrid"
+    "name" => "Ronaldo",
+    "country" => "Portugal",
+    "age" => 31,
+    "currentTeam" => "Real Madrid"
 ];
 
 $messi = [
-	"name" => "Messi",
-	"country" => "Argentina",
-	"age" => 27,
-	"currentTeam" => "Barcelona"
+    "name" => "Messi",
+    "country" => "Argentina",
+    "age" => 27,
+    "currentTeam" => "Barcelona"
 ];
 
 $team = [
-	"player1" => $ronaldo,
-	"player2" => $messi
+    "player1" => $ronaldo,
+    "player2" => $messi
 ];
 
 
 class Player
 {
 
-	public $name;
-	public $country;
-	public $age;
-	public $currentTeam;
+    public $name;
+    public $country;
+    public $age;
+    public $currentTeam;
 
 }
 
@@ -115,7 +115,7 @@ $prime[] = 3;
 $prime[] = 5;
 
 if (in_array(2, $prime)) {
-	echo "2 is a prime";
+    echo "2 is a prime";
 }
 
 $union = array_merge($prime, $odd);
@@ -136,7 +136,7 @@ $prime[3] = true;
 $prime[5] = true;
 
 if (isset($prime[2])) {
-	echo "2 is a prime";
+    echo "2 is a prime";
 }
 
 $union = $prime + $odd;

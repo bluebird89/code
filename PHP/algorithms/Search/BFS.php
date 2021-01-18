@@ -3,33 +3,33 @@
 
 function BFS(array &$graph, int $start, array $visited): SplQueue
 {
-	$queue = new SplQueue;
-	$path = new SplQueue;
+    $queue = new SplQueue;
+    $path = new SplQueue;
 
-	$queue->enqueue($start);
-	$visited[$start] = 1;
+    $queue->enqueue($start);
+    $visited[$start] = 1;
 
-	while (!$queue->isEmpty()) {
-		$node = $queue->dequeue();
-		$path->enqueue($node);
-		foreach ($graph[$node] as $key => $vertex) {
-			if (!$visited[$key] && $vertex == 1) {
-				$visited[$key] = 1;
-				$queue->enqueue($key);
-			}
-		}
-	}
+    while (!$queue->isEmpty()) {
+        $node = $queue->dequeue();
+        $path->enqueue($node);
+        foreach ($graph[$node] as $key => $vertex) {
+            if (!$visited[$key] && $vertex == 1) {
+                $visited[$key] = 1;
+                $queue->enqueue($key);
+            }
+        }
+    }
 
-	return $path;
+    return $path;
 }
 
 $graph = [
-	0 => [0, 1, 1, 0, 0, 0],
-	1 => [1, 0, 0, 1, 0, 0],
-	2 => [1, 0, 0, 1, 0, 0],
-	3 => [0, 1, 1, 0, 1, 0],
-	4 => [0, 0, 0, 1, 0, 1],
-	5 => [0, 0, 0, 0, 1, 0],
+    0 => [0, 1, 1, 0, 0, 0],
+    1 => [1, 0, 0, 1, 0, 0],
+    2 => [1, 0, 0, 1, 0, 0],
+    3 => [0, 1, 1, 0, 1, 0],
+    4 => [0, 0, 0, 1, 0, 1],
+    5 => [0, 0, 0, 0, 1, 0],
 ];
 
 $graph = [];
@@ -37,8 +37,8 @@ $visited = [];
 $vertexCount = 6;
 
 for ($i = 1; $i <= $vertexCount; $i++) {
-	$graph[$i] = array_fill(1, $vertexCount, 0);
-	$visited[$i] = 0;
+    $graph[$i] = array_fill(1, $vertexCount, 0);
+    $visited[$i] = 0;
 }
 
 $graph[1][2] = $graph[2][1] = 1;
@@ -52,6 +52,5 @@ $graph[6][4] = $graph[4][6] = 1;
 $path = BFS($graph, 5, $visited);
 
 while (!$path->isEmpty()) {
-	echo $path->dequeue()."\t";
+    echo $path->dequeue()."\t";
 }
-

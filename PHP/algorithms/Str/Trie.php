@@ -68,7 +68,7 @@ class Trie
         $p = $this->root;
         for ($i = 0, $iMax = mb_strlen($pattern); $i < $iMax; $i++) {
             $index = $pattern[$i];
-            if (!isset($p->children[$index]) ||  $p->children[$index] == null) {
+            if (!isset($p->children[$index]) || $p->children[$index] == null) {
                 // 不存在 pattern
                 return false;
             }

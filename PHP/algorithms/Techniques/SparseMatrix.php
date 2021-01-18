@@ -12,11 +12,11 @@ $sparseArray[7][1] = 1;
 
 function getSparseValue(array $array, int $i, int $j): int
 {
-	if (isset($array[$i][$j])) {
-		return $array[$i][$j];
-	} else {
-		return 0;
-	}
+    if (isset($array[$i][$j])) {
+        return $array[$i][$j];
+    } else {
+        return 0;
+    }
 }
 
 echo getSparseValue($sparseArray, 0, 2)."\n";
