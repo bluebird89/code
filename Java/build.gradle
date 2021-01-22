@@ -1,20 +1,21 @@
-plugins{
-	id 'java'
+plugins {
+    id 'java'
 }
 
 group 'org.codingdojo.kata'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility=1.8
+sourceCompatibility = 1.8
 
-repositories{
-	mavenCentral()
+repositories {
+    mavenCentral()
 }
 
 dependencies {
-	compile 'org.junit.jupiter:junit-jupiter:5.7.0'
+ 'org.junit.jupiter:junit-jupiter:5.7.0'
+    'com.google.code.gson:gson: 2.8.5'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
