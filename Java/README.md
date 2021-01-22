@@ -286,3 +286,13 @@
     - Singleton
     - Composite
     - iterator
+    
+### Singleton
+
+* Singleton 返回一个唯一实例的static方法
+* 多线程调用getInstance时，会生成多个实例
+* 相关
+    - AbstractFactory
+    - Builder
+    - Facade
+    - Prototype
