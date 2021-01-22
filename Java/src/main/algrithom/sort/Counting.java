@@ -5,7 +5,6 @@ import java.util.Arrays;
 /**
  * @author henry
  * [计数排序](https://mp.weixin.qq.com/s/eIegGzddx4DuqjvKELlAZA)
- *
  */
 public class Counting {
 

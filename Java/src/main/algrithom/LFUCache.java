@@ -99,7 +99,7 @@ public class LFUCache {
         }
     }
 
-    void main(){
+    void main() {
         LFUCache cache = new LFUCache(2);
 
 // 插入两对 (key, val)，对应的 freq 为 1

@@ -1,8 +1,8 @@
 package tdd.args;
 
 public class StringFlag implements IFlag {
-    private Object value;
     private static final String TYPE = "string";
+    private Object value;
 
     public StringFlag(Object value) {
         this.value = value;

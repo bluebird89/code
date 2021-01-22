@@ -1,8 +1,6 @@
 package oop;
 
 
-import oop.VirtualMerchandise;
-
 import java.util.Date;
 
 public class GamePointCard extends oop.Merchandise implements VirtualMerchandise, ExpireDateMerchandise {

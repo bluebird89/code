@@ -5,7 +5,7 @@ public class MathE {
         int i1 = 128;  // 装箱，相当于 Integer.valueOf(128);
         int t = i1; //相当于 i1.intValue() 拆箱
 
-    // 当两个 Integer 变量的数值超出 -128 ~ 127 范围时, 变量使用了不同地址：
+        // 当两个 Integer 变量的数值超出 -128 ~ 127 范围时, 变量使用了不同地址：
         Integer a = 123;
         Integer b = 123;
         // a == b;        // 输出 true

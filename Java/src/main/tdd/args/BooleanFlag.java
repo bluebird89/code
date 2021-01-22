@@ -1,8 +1,8 @@
 package tdd.args;
 
 public class BooleanFlag implements IFlag {
-    private Object value;
     private static final String TYPE = "boolean";
+    private Object value;
 
     public BooleanFlag(Object value) {
         this.value = value;

@@ -19,7 +19,7 @@ class FileDemo {
             System.out.println("文件不存在");
         }
 
-        String fileName = "D:"+ File.separator + "filepackage";
+        String fileName = "D:" + File.separator + "filepackage";
         f.mkdir();
         String[] str = f.list();
         for (int i = 0; i < str.length; i++) {

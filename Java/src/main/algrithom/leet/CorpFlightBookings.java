@@ -6,8 +6,9 @@ import java.util.Arrays;
 
 /**
  * 力扣第 1109 题「航班预订统计
- *
+ * <p>
  * 输入一个长度为n的数组nums，其中所有元素都是 0。再输入一个bookings，里面是若干三元组(i,j,k)，每个三元组的含义就是要求给nums数组的闭区间[i-1,j-1]中所有元素都加上k。请你返回最后的nums数组是多少？
+ *
  * @author henry
  */
 public class CorpFlightBookings {

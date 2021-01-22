@@ -25,9 +25,8 @@ public class DoubleList {
     }
 
     /**
-     *
-     // 删除链表中的 x 节点（x 一定存在）
-     // 由于是双链表且给的是目标 Node 节点，时间 O(1)
+     * // 删除链表中的 x 节点（x 一定存在）
+     * // 由于是双链表且给的是目标 Node 节点，时间 O(1)
      */
     public void remove(LinkNode x) {
         x.prev.next = x.next;

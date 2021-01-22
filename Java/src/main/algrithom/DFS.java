@@ -8,6 +8,8 @@ import java.util.Stack;
 
 class DFS {
 
+    private static final List<List<Integer>> TRAVERSAL_LIST = new ArrayList<>();
+
     private static void DFS(TreeNode root, int level) {
         if (root == null) {
             return;
@@ -57,6 +59,20 @@ class DFS {
     }
 
     /**
+     * leetcode 111: 求树的最小深度
+     *
+     * @return
+     */
+    public static int getMinDepth(TreeNode LinkNode) {
+        if (LinkNode == null) {
+            return 0;
+        }
+        int leftDepth = getMinDepth(LinkNode.left) + 1;
+        int rightDepth = getMinDepth(LinkNode.right) + 1;
+        return Math.min(leftDepth, rightDepth);
+    }
+
+    /**
      * leetcode 104: 求树的最大深度
      *
      * @param Nodes
@@ -71,22 +87,6 @@ class DFS {
 
         return Math.max(leftDepth, rightDepth);
     }
-
-    /**
-     * leetcode 111: 求树的最小深度
-     *
-     * @return
-     */
-    public static int getMinDepth(TreeNode LinkNode) {
-        if (LinkNode == null) {
-            return 0;
-        }
-        int leftDepth = getMinDepth(LinkNode.left) + 1;
-        int rightDepth = getMinDepth(LinkNode.right) + 1;
-        return Math.min(leftDepth, rightDepth);
-    }
-
-    private static final List<List<Integer>> TRAVERSAL_LIST = new ArrayList<>();
 
     /**
      * leetcdoe 102: 二叉树的层序遍历, 使用 dfs

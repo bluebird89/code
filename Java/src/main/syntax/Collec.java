@@ -17,8 +17,8 @@ public class Collec {
         List<String> arrayList = new ArrayList<String>();
         arrayList.add("cxuan");
 
-        for(int i = 0; i< arrayList.size();i++){
-            String item = (String)arrayList.get(i);
+        for (int i = 0; i < arrayList.size(); i++) {
+            String item = (String) arrayList.get(i);
             // System.out.println("test === ", item);
         }
     }

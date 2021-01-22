@@ -40,12 +40,12 @@ public class RotateArray {
 
     /**
      * LeetCode 415 - Add Strings[5]（Easy）
-     *
+     * <p>
      * 计算两个字符串形式的非负整数的和。
      */
 
     public static void main(String[] args) {
-        int[] nums = new int[]{5,4,3,2,1};
+        int[] nums = new int[]{5, 4, 3, 2, 1};
         rotate(nums, 3);
         System.out.println(Arrays.toString(nums));
     }

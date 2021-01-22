@@ -1,8 +1,8 @@
 package tdd.args;
 
 public class IntegerFlag implements IFlag {
-    private Object value;
     private static final String TYPE = "integer";
+    private Object value;
 
     public IntegerFlag(Object value) {
         this.value = value;

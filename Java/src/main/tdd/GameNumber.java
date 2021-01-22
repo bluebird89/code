@@ -7,6 +7,11 @@ public class GameNumber {
         this.i = i;
     }
 
+    public static void main(String[] args) {
+        for (int i = 0; i < 100; i++) {
+        }
+    }
+
     public String toString1() {
         if (this.i % 3 == 0) {
             return "Fizz";
@@ -34,10 +39,5 @@ public class GameNumber {
         }
 
         return rs;
-    }
-
-    public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
-        }
     }
 }

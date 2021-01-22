@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StringListFlag implements IFlag {
-    private Object value;
     private static final String TYPE = "stringlist";
+    private Object value;
 
     public StringListFlag(Object value) {
         this.value = value;

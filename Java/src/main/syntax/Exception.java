@@ -2,9 +2,9 @@ package main.syntax;
 
 public class Exception extends Throwable {
     public static void main(String[] args) {
-        try{
+        try {
 
-        } catch( java.lang.Exception e) {
+        } catch (java.lang.Exception e) {
 
         }
     }

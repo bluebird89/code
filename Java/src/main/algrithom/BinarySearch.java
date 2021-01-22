@@ -12,7 +12,7 @@ public class BinarySearch {
                 lo = mid + 1;
             } else if (key < a[mid]) {
                 hi = mid - 1;
-            }else {
+            } else {
                 return mid;
             }
         }
