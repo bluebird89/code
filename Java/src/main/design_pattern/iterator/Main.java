@@ -13,6 +13,12 @@ public class Main {
             Book book = (Book) it.next();
             System.out.println(book.getName());
         }
+        System.out.println("--------------");
+        it = bookShelf.reverseIterator();
+        while (it.hasNext()) {
+            Book book = (Book) it.next();
+            System.out.println(book.getName());
+        }
     }
 
 }

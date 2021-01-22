@@ -1,7 +1,7 @@
 package design_pattern.iterator;
 
 public class BookShelf implements Aggregate {
-    private Book[] books;
+    private final Book[] books;
     private int last = 0;
 
     public BookShelf(int maxsize) {
@@ -13,12 +13,17 @@ public class BookShelf implements Aggregate {
     }
 
     public void appendBook(Book book) {
+// TODO:检测容量
         this.books[last] = book;
         last++;
     }
 
     public Iterator iterator() {
         return new BookShelfIterator(this);
+    }
+
+    public Iterator reverseIterator() {
+        return new BookShelfReverseIterator(this);
     }
 
     public int getLength() {
