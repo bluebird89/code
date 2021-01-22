@@ -26,7 +26,10 @@
     "willdurand/geocoder": "^4.3",
     "league/csv": "^9.6",
     "swiftmailer/swiftmailer": "^6.2",
-    "tarsana/functional": "^2.2"
+    "tarsana/functional": "^2.2",
+    "ext-intl": "*",
+    "apache/thrift": "^0.13.0",
+    "ext-bcmath": "*"
   },
   "autoload": {
 	"files": [

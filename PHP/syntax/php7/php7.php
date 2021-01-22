@@ -9,7 +9,7 @@ function sum(int ...$ints)
 	return array_sum($ints);
 }
 
-//print(sum(2, '3', 4.1)); # Fatal error
+print(sum(2, 3, 4)); # Fatal error
 
 function returnIntValue(int $value): float
 {
@@ -91,19 +91,19 @@ $bytes = random_bytes(5);
 print(bin2hex($bytes));
 print(random_int(-1000, 0));
 
+use AssertionError;
+use com\yiibai\{ClassA, ClassB, ClassC as C};
+use IntlChar;
+
 printf('%x', IntlChar::CODEPOINT_MAX);
 echo IntlChar::charName('@');
 var_dump(IntlChar::ispunct('!'));
 
-ini_set('assert.exception', 1);
-
-class CustomError extends AssertionError
-{
-}
+ini_set('assert.exception', 'true');
 
 assert(false, new CustomError('Custom Error Message!'));
 
-use com\yiibai\{ClassA, ClassB, ClassC as C};
+use Throwable;
 use function com\yiibai\{fn_a, fn_b, fn_c};
 use const com\yiibai\{ConstA, ConstB, ConstC};
 
@@ -139,19 +139,19 @@ function gen2()
 foreach (gen() as $val) {
 	echo $val, PHP_EOL;
 }
-var_dump(intdiv(10, 3)) //3
+var_dump(intdiv(10, 3)); //3
 
-session_start([
-		'cache_limiter' => 'private',
-		'read_and_close' => true,
-]);
+//session_start([
+//		'cache_limiter' => 'private',
+//		'read_and_close' => true,
+//]);
 
 class MathOperations
 {
 	protected $n = 10;
 
 	// Try to get the Division by Zero error object and display as Exception
-	public function doOperation(): string
+	public function doOperation()
 	{
 		try {
 			$value = $this->n % 0;
@@ -222,23 +222,22 @@ preg_replace_callback_array(
 		$input
 );
 
-interface Throwable
-
 function handler(Exception $e)
 {
+    echo 'hello';
 }
 set_exception_handler('handler');
 
 // 兼容 PHP 5 和 7
-function handler($e)
+function handler0($e)
 {
-	...
+	echo 'hello';
 }
 
 // 仅支持 PHP 7
-function handler(Throwable $e)
+function handler1(Throwable $e)
 {
-	...
+    echo 'hello';
 }
 
 list($a, $b, $c) = [1, 2, 3];
@@ -348,10 +347,6 @@ test(new StdClass());
 //extension=php-ast
 //zend_extension=opcache
 
-abstract class A
-{
-	abstract function test(string $s);
-}
 abstract class B extends A
 {
 	// overridden - still maintaining contravariance for parameters and covariance for return
@@ -366,9 +361,9 @@ use Foo\Bar\{
 
 var_dump(number_format(-0.01)); // now outputs string(1) "0" instead of string(2) "-0"
 
-var_dump(get_class(null))// warning
+var_dump(get_class(null));// warning
 
-count(1), // integers are not countable
+echo count(1); // integers are not countable
 
 // array to object
 $arr = [0 => 1];
@@ -379,10 +374,10 @@ var_dump(
 		$obj->{0} // now accessible
 );
 
-array_map(fn(User $user) => $user->id, $users)
+array_map(fn(User $user) => $user->id, $users);
 
 
-$username = $_GET['user'] ?? 'nobody'
+$username = $_GET['user'] ?? 'nobody';
 
 # 7.4
 $parts = ['apple', 'pear'];
@@ -395,4 +390,4 @@ $factor = 10;
 $calc = fn($num) => $num * $factor;
 
 # ibraries/DisplayResults.php#1229  Trying to access array offset on value of type bool
- $str{0}这种写法被废弃了
+// $str{0}; // 这种写法被废弃了

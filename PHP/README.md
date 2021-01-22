@@ -234,3 +234,7 @@ cp -r node_modules/@fortawesome/fontawesome-free/webfonts application/public
 ```
 thrift -r --gen php:server hello.thrift
 ```
+
+## framework
+
+* [simple-framework](https://github.com/CraryPrimitiveMan/simple-framework)
