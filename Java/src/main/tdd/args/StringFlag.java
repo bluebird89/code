@@ -1,4 +1,4 @@
-package org.codingjoko.args;
+package tdd.args;
 
 public class StringFlag implements IFlag {
     private Object value;

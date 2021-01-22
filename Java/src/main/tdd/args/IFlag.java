@@ -1,4 +1,4 @@
-package org.codingjoko.args;
+package tdd.args;
 
 public interface IFlag {
     public String getType();
