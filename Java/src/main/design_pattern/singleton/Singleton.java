@@ -3,7 +3,7 @@ package design_pattern.singleton;
 public class Singleton {
     private static final Singleton singletonNoStrict = new Singleton();
 
-    private void SingletonNoStrict() {
+    private Singleton() {
         System.out.println("Create a instance");
         slowdown();
     }
@@ -16,7 +16,6 @@ public class Singleton {
     }
 
     public static synchronized Singleton getInstance() {
-
         return singletonNoStrict;
     }
 }

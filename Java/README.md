@@ -81,6 +81,9 @@
 - 抽象类
 - 静态内部类
 - 构造函数不会被继承
+- 调用 Clone()，被复制对象类必须实现 Cloneable 接口 
+    - 浅复制
+    - super.clone()
 
 ## 源码
 
@@ -296,3 +299,10 @@
     - Builder
     - Facade
     - Prototype
+
+### Prototype
+
+* 不根据类，根据实例生成实例
+* Prototype 定义用于复制现有实例生成新实例的方法
+* ConcretePrototype 实现复制现有实例生成新实例
+* client 使用复制实例方法生成新实例
