@@ -306,3 +306,8 @@
 * Prototype 定义用于复制现有实例生成新实例的方法
 * ConcretePrototype 实现复制现有实例生成新实例
 * client 使用复制实例方法生成新实例
+
+## Builder
+
+* Builder 定义实例接口
+* Director 使用 builder 接口生成实例
