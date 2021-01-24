@@ -1,4 +1,4 @@
-package main.syntax;
+package syntax;
 
 import java.io.File;
 
@@ -22,8 +22,8 @@ class FileDemo {
         String fileName = "D:" + File.separator + "filepackage";
         f.mkdir();
         String[] str = f.list();
-        for (int i = 0; i < str.length; i++) {
-            System.out.println(str[i]);
+        for (String s : str) {
+            System.out.println(s);
         }
 
     }

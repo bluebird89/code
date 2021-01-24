@@ -1,4 +1,4 @@
-package algrithom;
+package algorithm;
 
 public class Stopwatch {
 

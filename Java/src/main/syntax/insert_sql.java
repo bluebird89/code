@@ -1,4 +1,4 @@
-// package com.syntax;
+// package syntax;
 //
 // import java.sql.Connection;
 // import java.sql.DriverManager;

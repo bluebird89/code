@@ -1,6 +1,6 @@
-package algrithom.binaryTree;
+package algorithm.binaryTree;
 
-import algrithom.data_structure.TreeNode;
+import algorithm.data_structure.TreeNode;
 
 import java.util.Arrays;
 import java.util.LinkedList;

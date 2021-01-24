@@ -1,4 +1,4 @@
-package main.syntax;
+package syntax;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +17,9 @@ public class Collec {
         List<String> arrayList = new ArrayList<String>();
         arrayList.add("cxuan");
 
-        for (int i = 0; i < arrayList.size(); i++) {
-            String item = (String) arrayList.get(i);
-            // System.out.println("test === ", item);
+        for (String s : arrayList) {
+            String item = (String) s;
+            // System.out.println("test === ". item);
         }
     }
 }

@@ -1,6 +1,6 @@
-package algrithom;
+package algorithm;
 
-import algrithom.data_structure.TreeNode;
+import algorithm.data_structure.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

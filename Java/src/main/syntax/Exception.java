@@ -1,4 +1,4 @@
-package main.syntax;
+package syntax;
 
 public class Exception extends Throwable {
     public static void main(String[] args) {

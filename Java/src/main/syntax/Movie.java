@@ -1,4 +1,4 @@
-package main.syntax;
+package syntax;
 
 public class Movie {
 
@@ -6,7 +6,7 @@ public class Movie {
     public static final int REGUALR = 1;
     public static final int NEW_REALEASE = 0;
 
-    private String _title;
+    private final String _title;
     private int _priceCode;
 
     public Movie(String title, int priceCode) {
