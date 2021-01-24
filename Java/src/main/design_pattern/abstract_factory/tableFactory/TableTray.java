@@ -1,23 +1,28 @@
-package design_pattern.abstract_factory.listfactory;
+package design_pattern.abstract_factory.tableFactory;
 
 import design_pattern.abstract_factory.factory.Item;
 import design_pattern.abstract_factory.factory.Tray;
 
-public class ListTray extends Tray {
-    public ListTray(String caption) {
+public class TableTray extends Tray {
+    public TableTray(String caption) {
         super(caption);
     }
 
     @Override
     public String makeHTML() {
         StringBuffer buffer = new StringBuffer();
-        buffer.append("<li>\n").append(caption).append("\n").append("<ul>\n");
+        buffer.append("<td> <table width=\"100%\" border=\"1\"<tr>")
+                .append("<td bgcolor=\"#cccccc\" align=\"center\" colspan=\"" + tray.size() + "\"><b>")
+                .append(caption)
+                .append("</b></td>")
+                .append("</tr>\n")
+                .append("<tr>\n");
 
         for (Object o : tray) {
             Item item = (Item) o;
             buffer.append(item.makeHTML());
         }
-        buffer.append("</ul>/n").append("</li>\n");
+        buffer.append("</tr></table>").append("</td>");
 
         return buffer.toString();
     }

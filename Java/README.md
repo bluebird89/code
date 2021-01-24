@@ -307,7 +307,20 @@
 * ConcretePrototype 实现复制现有实例生成新实例
 * client 使用复制实例方法生成新实例
 
-## Builder
+### Builder
 
 * Builder 定义实例接口
 * Director 使用 builder 接口生成实例
+
+### abstract factory
+
+* AbstractProduct 定义 abstractFactory 生成抽象零件的接口
+* AbstractFactory 定义生成抽象对象接口
+
+```
+javac design_pattern/abstract_factory/Main.java  design_pattern/abstract_factory/listfactory/ListFactory.java
+java design_pattern.abstract_factory.Main design_pattern.abstract_factory.listfactory.ListFactory
+
+javac design_pattern/abstract_factory/Main.java  design_pattern/abstract_factory/tableFactory/TableFactory.java
+java design_pattern.abstract_factory.Main design_pattern.abstract_factory.tableFactory.TableFactory
+``` 
