@@ -1,5 +1,7 @@
 package syntax;
 
+import java.util.List;
+
 public class DataType {
     public static void main(String[] args) {
 
@@ -65,5 +67,9 @@ public class DataType {
         double[][] doubleArray = new double[100][20];
         System.out.println(intArray[2]);
         System.out.println(doubleArray[20][10]);
+
+        // List lst = new List {
+        //     3, 5, 6, 8
+        // }
     }
 }

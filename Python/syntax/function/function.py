@@ -29,6 +29,7 @@ def my_abs(x):
 
 print(my_abs(-101))
 
+
 # 默认参数必须指向不变对象，
 def power(x, n=2):
     s = 1

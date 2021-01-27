@@ -324,3 +324,7 @@ java design_pattern.abstract_factory.Main design_pattern.abstract_factory.listfa
 javac design_pattern/abstract_factory/Main.java  design_pattern/abstract_factory/tableFactory/TableFactory.java
 java design_pattern.abstract_factory.Main design_pattern.abstract_factory.tableFactory.TableFactory
 ``` 
+
+### Bridge
+
+* 搭建 类的功能层次结构 和 类的实现层次结构
