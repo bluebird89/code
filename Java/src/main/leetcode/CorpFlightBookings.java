@@ -1,4 +1,4 @@
-package main.algrithom.leet;
+package leetcode;
 
 import main.algrithom.Difference;
 

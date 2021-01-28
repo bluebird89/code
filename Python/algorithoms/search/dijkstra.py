@@ -1,11 +1,8 @@
-def min_path(graph_root_name):
-    pass
-
-
 def find_lowest_cost_node(costs):
     lowest_cost = float("inf")
     lowest_cost_node = None
 
+    # 找到最便宜节点
     for node in costs:
         cost = costs[node]
         if cost < lowest_cost and node not in processed:
@@ -29,9 +26,7 @@ if __name__ == '__main__':
 
     infinity = float("inf")
     costs = {"a": 6, "b": 2, "fin": infinity}
-
     parents = {"a": "start", "b": "start", "fin": None}
-
     processed = []
 
     node = find_lowest_cost_node(costs)

@@ -1,4 +1,4 @@
-package main.algrithom.leet;
+package leetcode;
 
 
 import java.util.Arrays;

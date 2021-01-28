@@ -81,7 +81,7 @@
 - 抽象类
 - 静态内部类
 - 构造函数不会被继承
-- 调用 Clone()，被复制对象类必须实现 Cloneable 接口 
+- 调用 Clone()，被复制对象类必须实现 Cloneable 接口
     - 浅复制
     - super.clone()
 
@@ -150,6 +150,7 @@
 
 ## TDD
 
+* 框定需求范围，澄清需求优先级，筛除不需要伪需求，理顺程序基本结构
 * 任务一:打印出从1到100的数字，将其中3的倍数替换成“Fizz”，5的倍数替换成“Buzz”。既能被3整除、又能被5整除的数则替换成“FizzBuzz”
     - 要求：每行代码都必须有单元测试覆盖
     * 分析 task
@@ -168,6 +169,10 @@
         + 列出完整的任务列表
         + 每个任务需要预估完成所需时间
         + 测试覆盖lv100%
+* Args
+    - 把命令行字符串拆分成main函数可用的字符串数组
+    - 把字符串形式的Schema解析成对象
+    - 根据Schema和参数字符串数组获取参数值
 * [出租车计价](https://github.com/gigix/tdd-taxi)：
     - Kata介绍
         + 通过文本文件向应用程序提供输入数据testData.txt，结果以console的形式输出。
@@ -188,7 +193,6 @@
         + 收费7元
         + 收费13元
         + 收费7元
-
 
 ```
 1. 添加学生
@@ -277,10 +281,10 @@
 ### Factory Method
 
 * 父类决定实例生成方式，并不决定要生成的具体类
-* creator 负责生成Product的抽象类，使用模版模式构造，具体规则由子类 ConcreteCreator 实现    
+* creator 负责生成Product的抽象类，使用模版模式构造，具体规则由子类 ConcreteCreator 实现
 * Product:抽象类，定义生成实例持有接口，具体实现由 ConcreteProduct 实现
 * framework 不依赖具体类
-* 生成实例方法  
+* 生成实例方法
     - 通过抽象方法
     - 为其实现默认处理，子类不存在，就进行默认处理，因为通过 new,不能抽象类
     - 默认处理为抛出异常
@@ -289,7 +293,7 @@
     - Singleton
     - Composite
     - iterator
-    
+
 ### Singleton
 
 * Singleton 返回一个唯一实例的static方法
@@ -323,7 +327,7 @@ java design_pattern.abstract_factory.Main design_pattern.abstract_factory.listfa
 
 javac design_pattern/abstract_factory/Main.java  design_pattern/abstract_factory/tableFactory/TableFactory.java
 java design_pattern.abstract_factory.Main design_pattern.abstract_factory.tableFactory.TableFactory
-``` 
+```
 
 ### Bridge
 

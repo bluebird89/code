@@ -69,6 +69,7 @@ class DFS {
         }
         int leftDepth = getMinDepth(LinkNode.left) + 1;
         int rightDepth = getMinDepth(LinkNode.right) + 1;
+
         return Math.min(leftDepth, rightDepth);
     }
 
